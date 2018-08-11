@@ -4,14 +4,31 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "precommit": "lint-staged",
     "dev": "next",
     "build": "next build",
     "start": "next start",
     "export": "next build && next export"
   },
+  "lint-staged": {
+    "src/**/*.{js,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "{package.json,.prettierrc}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "dependencies": {
     "next": "^6.1.1",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "typed.js": "^2.0.9"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.14.2"
   }
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Head from '../components/head'
 import Nav from '../components/nav'
+import TypeMessage from '../components/common/Typed'
 
 export default () => (
   <div>
@@ -36,6 +37,13 @@ export default () => (
           </a>
         </Link>
       </div>
+      <TypeMessage
+        strings={[
+          `I'm developer`,
+          'ฉันเป็นนักพัฒนาซอฟต์แวร์',
+          `私は開発者です`
+        ]}
+      />
     </div>
 
     <style jsx>{`

@@ -1,4 +1,34 @@
 import Link from 'next/link'
+import styled, { injectGlobal } from 'styled-components'
+
+injectGlobal`
+  // @font-face {
+  //   font-family: 'Operator Mono';
+  //   src: url('../fonts/Operator-Mono.ttf');
+  // }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+          Helvetica, sans-serif;
+  }
+`
+
+const UlStyle = styled.ul`
+  display: flex;
+  justify-content: space-between;
+`
+
+const LiStyle = styled.li`
+  display: flex;
+  padding: 6px 8px;
+`
+
+const AStyle = styled.a`
+  color: #067df7;
+  text-decoration: none;
+  font-size: 13px;
+`
 
 const links = [
   { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
@@ -9,50 +39,22 @@ const links = [
 
 const Nav = () => (
   <nav>
-    <ul>
-      <li>
+    <UlStyle style={{ padding: '4px 16px' }}>
+      <LiStyle>
         <Link prefetch href="/">
-          <a>Home</a>
+          <AStyle>Home</AStyle>
         </Link>
-      </li>
-      <ul>
-        {links.map(
-          ({ key, href, label }) => (
-            <li key={key}>
-              <Link href={href}>
-                <a>{label}</a>
-              </Link>
-            </li>
-          )
-        )}
-      </ul>
-    </ul>
-
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system,BlinkMacSystemFont,Avenir Next,Avenir,Helvetica,sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
+      </LiStyle>
+      <UlStyle>
+        {links.map(({ key, href, label }) => (
+          <LiStyle key={key}>
+            <Link href={href}>
+              <AStyle>{label}</AStyle>
+            </Link>
+          </LiStyle>
+        ))}
+      </UlStyle>
+    </UlStyle>
   </nav>
 )
 

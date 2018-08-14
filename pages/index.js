@@ -3,6 +3,11 @@ import Head from '../components/head'
 import Nav from '../components/nav'
 import TypeMessage from '../components/common/Typed'
 import styled from 'styled-components'
+import Particles from 'react-particles-js'
+import ParticleConfig from '../static/particlesjs-config.json'
+
+// https://github.com/Wufe/react-particles-js
+// https://github.com/VincentGarreau/particles.js/
 
 const Title = styled.h1`
   color: red;
@@ -25,5 +30,16 @@ export default () => (
         ]}
       />
     </div>
+
+    <Particles
+      params={ParticleConfig}
+      style={{
+        width: '100%',
+        backgroundImage: `url(https://image.ibb.co/hH3sWU/bed_computer_dark_34174.jpg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: `50% 50%`,
+        backgroundRepeat: 'no-repeat'
+      }}
+    />
   </div>
 )

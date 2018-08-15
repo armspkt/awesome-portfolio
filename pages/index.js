@@ -3,6 +3,7 @@ import Head from '../components/head'
 import Nav from '../components/nav'
 import TypeMessage from '../components/common/Typed'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 import Particles from 'react-particles-js'
 import ParticleConfig from '../static/particlesjs-config.json'
 
@@ -13,6 +14,18 @@ const Title = styled.h1`
   color: red;
   font-size: 50px;
 `
+
+const ParticlesStyle = styled(Particles)`
+  background-image: url(https://image.ibb.co/hH3sWU/bed_computer_dark_34174.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  ${media.lessThan('medium')`
+    /* screen width is less than 768px (medium) */
+    background-position: 47% 50%;
+  `};
+`
+
 export default () => (
   <div>
     <Head title="Home" />
@@ -22,24 +35,9 @@ export default () => (
 
       <Title>My page</Title>
 
-      <TypeMessage
-        strings={[
-          `I'm developer`,
-          'ฉันเป็นนักพัฒนาซอฟต์แวร์',
-          `私は開発者です`
-        ]}
-      />
+      <TypeMessage strings={[`I'm developer`, `私は開発者です`]} />
     </div>
 
-    <Particles
-      params={ParticleConfig}
-      style={{
-        width: '100%',
-        backgroundImage: `url(https://image.ibb.co/hH3sWU/bed_computer_dark_34174.jpg)`,
-        backgroundSize: 'cover',
-        backgroundPosition: `50% 50%`,
-        backgroundRepeat: 'no-repeat'
-      }}
-    />
+    <ParticlesStyle params={ParticleConfig} height="100vh" />
   </div>
 )

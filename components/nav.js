@@ -41,14 +41,14 @@ const Nav = () => (
   <nav>
     <UlStyle style={{ padding: '4px 16px' }}>
       <LiStyle>
-        <Link prefetch href="/">
+        <Link prefetch href="/" passHref>
           <AStyle>Home</AStyle>
         </Link>
       </LiStyle>
       <UlStyle>
         {links.map(({ key, href, label }) => (
           <LiStyle key={key}>
-            <Link href={href}>
+            <Link href={href} passHref>
               <AStyle>{label}</AStyle>
             </Link>
           </LiStyle>

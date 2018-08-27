@@ -2,16 +2,27 @@ import Link from 'next/link'
 import styled, { injectGlobal } from 'styled-components'
 
 injectGlobal`
-  // @font-face {
-  //   font-family: 'Operator Mono';
-  //   src: url('../fonts/Operator-Mono.ttf');
-  // }
+  @font-face {
+    font-family: 'Operator Mono Light';
+    src: url('../static/fonts/OperatorMono-Light.otf');
+  }
+
+  @font-face {
+    font-family: 'Operator Mono Light Italic';
+    src: url('../static/fonts/OperatorMono-LightItalic.otf');
+  }
 
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
           Helvetica, sans-serif;
   }
+`
+
+const NavStyle = styled.nav`
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 `
 
 const UlStyle = styled.ul`
@@ -25,7 +36,7 @@ const LiStyle = styled.li`
 `
 
 const AStyle = styled.a`
-  color: #067df7;
+  color: white;
   text-decoration: none;
   font-size: 13px;
 `
@@ -38,7 +49,7 @@ const links = [
 })
 
 const Nav = () => (
-  <nav>
+  <NavStyle>
     <UlStyle style={{ padding: '4px 16px' }}>
       <LiStyle>
         <Link prefetch href="/" passHref>
@@ -55,7 +66,7 @@ const Nav = () => (
         ))}
       </UlStyle>
     </UlStyle>
-  </nav>
+  </NavStyle>
 )
 
 export default Nav

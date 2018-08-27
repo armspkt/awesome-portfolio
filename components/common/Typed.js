@@ -1,5 +1,35 @@
 import React, { Component } from 'react'
 import Typed from 'typed.js'
+import styled from 'styled-components'
+import media from 'styled-media-query'
+
+const TypedContainer = styled.div`
+  font-family: 'Operator Mono Light Italic';
+  font-size: 2rem;
+  position: absolute;
+  /* width: 100%; */
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  margin-left: 70%;
+  margin-top: 15%;
+  color: white;
+
+  ${media.lessThan('medium')`
+    font-size: 1.6rem;
+    top: 25%;
+    left: 25%;
+    margin-left: 0;
+    margin-top: 0;
+  `};
+
+  ${media.between('medium', 'large')`
+    margin-left: 50%;
+  `};
+`
+
 class TypeMessage extends Component {
   componentDidMount() {
     // If you want to pass more options as props, simply add
@@ -9,7 +39,7 @@ class TypeMessage extends Component {
     const options = {
       strings: strings,
       loop: true,
-      typeSpeed: 50,
+      typeSpeed: 100,
       backSpeed: 50
     }
     // this.el refers to the <span> in the render() method
@@ -24,22 +54,14 @@ class TypeMessage extends Component {
 
   render() {
     return (
-      <div className="wrap">
-        <h1>Typed.js</h1>
-        <div className="type-wrap">
-          <span
-            style={{ whiteSpace: 'pre' }}
-            ref={el => {
-              this.el = el
-            }}
-          />
-        </div>
-        <button onClick={() => this.typed.toggle()}>Toggle</button>
-        <button onClick={() => this.typed.start()}>Start</button>
-        <button onClick={() => this.typed.stop()}>Stop</button>
-        <button onClick={() => this.typed.reset()}>Reset</button>
-        <button onClick={() => this.typed.destroy()}>Destroy</button>
-      </div>
+      <TypedContainer>
+        <span
+          style={{ whiteSpace: 'pre' }}
+          ref={el => {
+            this.el = el
+          }}
+        />
+      </TypedContainer>
     )
   }
 }

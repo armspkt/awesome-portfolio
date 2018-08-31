@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Transition from 'react-transition-group/Transition'
 import StarParallax from './StarParallax'
 
 const Container = styled.div`
@@ -8,7 +9,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 1000;
   background: #2d3436;
   top: 0;
   left: 0;
@@ -91,16 +92,39 @@ const SpinnerCircle = styled.div`
   transform: translate(-50%, -50%);
 `
 
-export default () => (
-  <Container>
-    <StarParallax />
-    <AtomSpinner>
-      <SpinnerIner>
-        <SpinnerLine />
-        <SpinnerLine />
-        <SpinnerLine />
-        <SpinnerCircle />
-      </SpinnerIner>
-    </AtomSpinner>
-  </Container>
+const duration = 500
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0
+}
+
+const transitionStyles = {
+  entering: { opacity: 0 },
+  entered: { opacity: 1 }
+}
+
+const Fade = ({ in: inProp }) => (
+  <Transition in={inProp} timeout={duration} unmountOnExit>
+    {state => (
+      <Container
+        style={{
+          ...defaultStyle,
+          ...transitionStyles[state]
+        }}
+      >
+        <StarParallax />
+        <AtomSpinner>
+          <SpinnerIner>
+            <SpinnerLine />
+            <SpinnerLine />
+            <SpinnerLine />
+            <SpinnerCircle />
+          </SpinnerIner>
+        </AtomSpinner>
+      </Container>
+    )}
+  </Transition>
 )
+
+export default props => <Fade in={props.loading} />

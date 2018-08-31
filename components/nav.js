@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styled, { injectGlobal } from 'styled-components'
+import media from 'styled-media-query'
 
 injectGlobal`
   @font-face {
@@ -12,60 +13,60 @@ injectGlobal`
     src: url('../static/fonts/OperatorMono-LightItalic.otf');
   }
 
-  body {
+  html, body {
     margin: 0;
+    padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
           Helvetica, sans-serif;
+  }
+
+  body {
+    overflow: hidden;
   }
 `
 
 const NavStyle = styled.nav`
   position: fixed;
+  margin: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 999;
+  /* background: salmon; */
 `
 
-const UlStyle = styled.ul`
+const NavContent = styled.div`
+  margin: 0 auto;
+  max-width: 980px;
+  padding: 0 22px;
+  position: relative;
+  padding-left: calc(max(22px, env(safe-area-inset-left)));
+  padding-right: calc(max(22px, env(safe-area-inset-right)));
+`
+
+const NavUlStyle = styled.ul`
+  cursor: default;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: 44px;
   display: flex;
   justify-content: space-between;
+  user-select: none;
+  list-style: none;
 `
 
-const LiStyle = styled.li`
-  display: flex;
-  padding: 6px 8px;
-`
-
-const AStyle = styled.a`
+const NavLiStyle = styled.li`
+  padding: 10px;
   color: white;
-  text-decoration: none;
-  font-size: 13px;
 `
-
-const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
 
 const Nav = () => (
   <NavStyle>
-    <UlStyle style={{ padding: '4px 16px' }}>
-      <LiStyle>
-        <Link prefetch href="/" passHref>
-          <AStyle>Home</AStyle>
-        </Link>
-      </LiStyle>
-      <UlStyle>
-        {links.map(({ key, href, label }) => (
-          <LiStyle key={key}>
-            <Link href={href} passHref>
-              <AStyle>{label}</AStyle>
-            </Link>
-          </LiStyle>
-        ))}
-      </UlStyle>
-    </UlStyle>
+    <NavContent>
+      <NavUlStyle>
+        <NavLiStyle>HOME</NavLiStyle>
+        <NavLiStyle>GITHUB</NavLiStyle>
+      </NavUlStyle>
+    </NavContent>
   </NavStyle>
 )
 

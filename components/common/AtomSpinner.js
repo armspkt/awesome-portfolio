@@ -127,4 +127,20 @@ const Fade = ({ in: inProp }) => (
   </Transition>
 )
 
-export default props => <Fade in={props.loading} />
+export default ({ hostRef }) => {
+  return (
+    <div ref={hostRef} style={{ transition: '1s' }}>
+      <Container>
+        <StarParallax />
+        <AtomSpinner>
+          <SpinnerIner>
+            <SpinnerLine />
+            <SpinnerLine />
+            <SpinnerLine />
+            <SpinnerCircle />
+          </SpinnerIner>
+        </AtomSpinner>
+      </Container>
+    </div>
+  )
+}

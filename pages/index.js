@@ -8,11 +8,29 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 import Particles from 'react-particles-js'
 import ParticleConfig from '../static/particlesjs-config.json'
+import posed, { PoseGroup } from 'react-pose'
 
 // https://github.com/Wufe/react-particles-js
 // https://github.com/VincentGarreau/particles.js/
 
 // https://flatuicolors.com/palette/us
+
+const FadeLoading = posed(AtomSpinner)({
+  exit: {
+    opacity: 0,
+    transition: {
+      type: 'tween',
+      duration: 500,
+      ease: 'easeInOut'
+    }
+  },
+  enter: { opacity: 1 }
+})
+
+const FadeContent = posed.div({
+  exit: { opacity: 0 },
+  enter: { opacity: 1 }
+})
 
 const ParticlesStyle = styled(Particles)`
   width: 100%;
@@ -97,24 +115,28 @@ class Index extends Component {
     return (
       <div>
         <link rel="preload" href="/static/mac-bg-min.jpg" as="image" />
-        <AtomSpinner loading={this.state.loading} />
+        {/* <AtomSpinner loading={this.state.loading} /> */}
         <div>
           <Head title="Home" />
           <Nav />
         </div>
-        {!this.state.loading && (
-          <div>
-            <Container>
-              <ParticlesStyle params={ParticleConfig} />
-              <div>
-                <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
-                {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}
-              </div>
-            </Container>
-            <Rainbow>Rainbows are colorful and scalable and lovely</Rainbow>
-            {/* https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/ */}
-          </div>
-        )}
+        <PoseGroup flipMove>
+          {this.state.loading ? (
+            <FadeLoading key={1} initialPose="enter" pose="exit" />
+          ) : (
+            <FadeContent key={2} initialpose="exit" pose="enter">
+              <Container>
+                <ParticlesStyle params={ParticleConfig} />
+                <div>
+                  <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
+                  {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}
+                </div>
+              </Container>
+              <Rainbow>Rainbows are colorful and scalable and lovely</Rainbow>
+              {/* https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/ */}
+            </FadeContent>
+          )}
+        </PoseGroup>
       </div>
     )
   }

@@ -15,6 +15,9 @@ import ParticleConfig from '../static/particlesjs-config.json'
 // https://flatuicolors.com/palette/us
 
 const ParticlesStyle = styled(Particles)`
+  width: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background-image: url('/static/mac-bg-min.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,6 +26,10 @@ const ParticlesStyle = styled(Particles)`
     background-size: cover;
     background-position: 47.5% 50%;
   `};
+
+  canvas {
+    position: absolute;
+  }
 `
 
 const Container = styled.div`
@@ -67,33 +74,45 @@ class Index extends Component {
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.handleOnResize)
     setTimeout(() => {
+      document.body.style.overflow = 'auto'
+      this.handleOnResize()
       this.setState({ loading: false })
-    }, 1500)
+    }, 1000)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleOnResize)
+  }
+
+  handleOnResize = () => {
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
   }
 
   render() {
     return (
       <div>
         <link rel="preload" href="/static/mac-bg-min.jpg" as="image" />
-        {this.state.loading ? (
+        <AtomSpinner loading={this.state.loading} />
+        <div>
+          <Head title="Home" />
+          <Nav />
+        </div>
+        {!this.state.loading && (
           <div>
-            <AtomSpinner />
-          </div>
-        ) : (
-          <div>
-            <Head title="Home" />
-            <Nav />
-
             <Container>
-              <ParticlesStyle params={ParticleConfig} height="99.5vh" />
+              <ParticlesStyle params={ParticleConfig} />
               <div>
                 <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
                 {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}
               </div>
-              {/* <Rainbow>Rainbows are colorful and scalable and lovely</Rainbow> */}
-              {/* https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/ */}
             </Container>
+            <Rainbow>Rainbows are colorful and scalable and lovely</Rainbow>
+            {/* https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/ */}
           </div>
         )}
       </div>

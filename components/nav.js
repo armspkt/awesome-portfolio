@@ -27,10 +27,6 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
 `
-// fix styled-compoennts-v4-beta not working with styled-components at the same level when use GlobalStyle (only build on production)
-const FixSyledComponentsBeta = styled.div`
-  display: block;
-`
 
 const NavStyle = styled.nav`
   position: fixed;
@@ -69,16 +65,14 @@ const NavLiStyle = styled.li`
 const Nav = () => (
   <Fragment>
     <GlobalStyle />
-    <FixSyledComponentsBeta>
-      <NavStyle>
-        <NavContent>
-          <NavUlStyle>
-            <NavLiStyle>HOME</NavLiStyle>
-            <NavLiStyle>GITHUB</NavLiStyle>
-          </NavUlStyle>
-        </NavContent>
-      </NavStyle>
-    </FixSyledComponentsBeta>
+    <NavStyle>
+      <NavContent>
+        <NavUlStyle>
+          <NavLiStyle>HOME</NavLiStyle>
+          <NavLiStyle>GITHUB</NavLiStyle>
+        </NavUlStyle>
+      </NavContent>
+    </NavStyle>
   </Fragment>
 )
 

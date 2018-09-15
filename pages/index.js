@@ -1,3 +1,5 @@
+console.time('timer')
+
 import React, { Component } from 'react'
 import Link from 'next/link'
 import Head from '../components/head'
@@ -68,14 +70,30 @@ const Rainbow = styled.span`
   background-clip: text;
 `
 
+const RainbowBackground = styled.div`
+  background: linear-gradient(
+    90deg,
+    #fca09a,
+    #fcccd3,
+    #ffcc9d,
+    #98ddad,
+    #81d7ec,
+    #a0aaed
+  );
+  height: 100px;
+`
+
 class Index extends Component {
   state = {
     loading: true
   }
 
   componentDidMount() {
+    console.timeEnd('timer')
     window.addEventListener('resize', this.handleOnResize)
     setTimeout(() => {
+      console.timeEnd('timer')
+
       document.body.style.overflow = 'auto'
       this.handleOnResize()
       this.setState({ loading: false })
@@ -112,6 +130,10 @@ class Index extends Component {
               </div>
             </Container>
             <Rainbow>Rainbows are colorful and scalable and lovely</Rainbow>
+            <RainbowBackground>
+              inspire by https://devcon4.ethereum.org/
+            </RainbowBackground>
+
             {/* https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/ */}
           </div>
         )}

@@ -22,13 +22,13 @@
     ]
   },
   "dependencies": {
-    "next": "^7.0.0-canary.16",
+    "next": "^7.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-particles-js": "^2.3.0",
     "react-scroll": "^1.7.10",
     "react-transition-group": "^2.4.0",
-    "styled-components": "^4.0.0-beta.5",
+    "styled-components": "^4.0.0-beta.8",
     "styled-media-query": "^2.0.2",
     "typed.js": "^2.0.9"
   },

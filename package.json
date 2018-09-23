@@ -22,9 +22,12 @@
     ]
   },
   "dependencies": {
+    "babel-plugin-polished": "^1.1.0",
     "next": "^6.1.1",
+    "polished": "^2.1.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-live": "^1.11.0",
     "react-particles-js": "^2.3.0",
     "react-scroll": "^1.7.10",
     "react-transition-group": "^2.4.0",

@@ -4,7 +4,6 @@ import * as polished from 'polished'
 import LiveEdit from '../components/common/LiveEdit'
 
 const Container = styled.div`
-  /* box-sizing: border-box; */
   margin: 0 auto;
   max-width: 100%;
   width: ${polished.rem(1024)};

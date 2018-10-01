@@ -1,8 +1,11 @@
+import { Fragment } from 'react'
 import Link from 'next/link'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import media from 'styled-media-query'
 
-injectGlobal`
+// styled-components v4
+// https://medium.com/styled-components/announcing-styled-components-v4-better-faster-stronger-3fe1aba1a112
+const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Operator Mono Light';
     src: url('../static/fonts/OperatorMono-Light.otf');
@@ -60,14 +63,17 @@ const NavLiStyle = styled.li`
 `
 
 const Nav = () => (
-  <NavStyle>
-    <NavContent>
-      <NavUlStyle>
-        <NavLiStyle>HOME</NavLiStyle>
-        <NavLiStyle>GITHUB</NavLiStyle>
-      </NavUlStyle>
-    </NavContent>
-  </NavStyle>
+  <Fragment>
+    <GlobalStyle />
+    <NavStyle>
+      <NavContent>
+        <NavUlStyle>
+          <NavLiStyle>HOME</NavLiStyle>
+          <NavLiStyle>GITHUB</NavLiStyle>
+        </NavUlStyle>
+      </NavContent>
+    </NavStyle>
+  </Fragment>
 )
 
 export default Nav

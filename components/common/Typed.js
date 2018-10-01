@@ -38,6 +38,7 @@ class TypeMessage extends Component {
     // You can pass other options here, such as typing speed, back speed, etc.
     const options = {
       strings: strings,
+      smartBackspace: true,
       loop: true,
       typeSpeed: 100,
       backSpeed: 50
@@ -55,6 +56,7 @@ class TypeMessage extends Component {
   render() {
     return (
       <TypedContainer>
+        <span style={{ marginRight: '1rem' }}>Test:</span>
         <span
           style={{ whiteSpace: 'pre' }}
           ref={el => {

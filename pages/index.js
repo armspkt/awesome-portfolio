@@ -97,7 +97,7 @@ class Index extends Component {
       document.body.style.overflow = 'auto'
       this.handleOnResize()
       this.setState({ loading: false })
-    }, 1000)
+    }, 800)
   }
 
   componentWillUnmount() {

@@ -3,7 +3,7 @@ import Transition from 'react-transition-group/Transition'
 import StarParallax from './StarParallax'
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   display: flex;
@@ -47,6 +47,7 @@ const SpinnerLine = styled.div`
   border-right-style: solid;
   border-top-style: solid;
   border-top-color: transparent;
+  will-change: transform;
 
   &:nth-child(1) {
     animation: atom-spinner-animation-1 1s linear infinite;
@@ -90,6 +91,7 @@ const SpinnerCircle = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  will-change: transform;
 `
 
 const duration = 500

@@ -98,7 +98,8 @@ const duration = 500
 
 const defaultStyle = {
   transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0
+  opacity: 0,
+  willChange: 'opacity'
 }
 
 const transitionStyles = {

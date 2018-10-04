@@ -15,7 +15,6 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>My page</title>
           <meta charSet="UTF-8" />
           <meta
             name="viewport"

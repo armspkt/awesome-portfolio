@@ -94,7 +94,6 @@ class Index extends Component {
     setTimeout(() => {
       console.timeEnd('timer')
 
-      document.body.style.overflow = 'auto'
       this.handleOnResize()
       this.setState({ loading: false })
     }, 800)

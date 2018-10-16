@@ -1,6 +1,12 @@
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Transition from 'react-transition-group/Transition'
 import StarParallax from './StarParallax'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
+`
 
 const Container = styled.div`
   position: fixed;
@@ -116,6 +122,7 @@ const Fade = ({ in: inProp }) => (
           ...transitionStyles[state]
         }}
       >
+        <GlobalStyle />
         <StarParallax />
         <AtomSpinner>
           <SpinnerIner>

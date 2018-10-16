@@ -22,10 +22,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
           Helvetica, sans-serif;
   }
-
-  body {
-    overflow: hidden;
-  }
 `
 
 const NavStyle = styled.nav`

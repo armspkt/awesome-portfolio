@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import Transition from 'react-transition-group/Transition'
+import { Transition, config } from 'react-spring'
 import StarParallax from './StarParallax'
 
 const GlobalStyle = createGlobalStyle`
@@ -25,7 +25,7 @@ const Container = styled.div`
   }
 `
 
-const AtomSpinner = styled.div`
+const AtomSpinnerContainer = styled.div`
   height: 120px;
   width: 120px;
   overflow: hidden;
@@ -100,41 +100,36 @@ const SpinnerCircle = styled.div`
   will-change: transform;
 `
 
-const duration = 500
+const spring = { ...config.default, precision: 0.1, duration: 800 }
 
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-  willChange: 'opacity'
+const AtomSpiner = ({ loading }) => {
+  return (
+    <Transition
+      items={loading}
+      from={{ opacity: 1 }}
+      enter={{ opacity: 1 }}
+      leave={{ opacity: 0 }}
+      config={spring}
+    >
+      {loading =>
+        loading &&
+        (props => (
+          <Container style={props}>
+            <GlobalStyle />
+            <StarParallax />
+            <AtomSpinnerContainer>
+              <SpinnerIner>
+                <SpinnerLine />
+                <SpinnerLine />
+                <SpinnerLine />
+                <SpinnerCircle />
+              </SpinnerIner>
+            </AtomSpinnerContainer>
+          </Container>
+        ))
+      }
+    </Transition>
+  )
 }
 
-const transitionStyles = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 }
-}
-
-const Fade = ({ in: inProp }) => (
-  <Transition in={inProp} timeout={duration} unmountOnExit>
-    {state => (
-      <Container
-        style={{
-          ...defaultStyle,
-          ...transitionStyles[state]
-        }}
-      >
-        <GlobalStyle />
-        <StarParallax />
-        <AtomSpinner>
-          <SpinnerIner>
-            <SpinnerLine />
-            <SpinnerLine />
-            <SpinnerLine />
-            <SpinnerCircle />
-          </SpinnerIner>
-        </AtomSpinner>
-      </Container>
-    )}
-  </Transition>
-)
-
-export default props => <Fade in={props.loading} />
+export default AtomSpiner

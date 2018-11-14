@@ -1,7 +1,26 @@
 import { Fragment } from 'react'
 // import Link from 'next/link'
-import styled from 'styled-components'
+import styled, { ServerStyleSheet, createGlobalStyle } from 'styled-components'
 import media from 'styled-media-query'
+
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Operator Mono Light';
+    src: url('../static/fonts/OperatorMono-Light.otf');
+  }
+
+  @font-face {
+    font-family: 'Operator Mono Light Italic';
+    src: url('../static/fonts/OperatorMono-LightItalic.otf');
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+          Helvetica, sans-serif;
+  }
+`
 
 const NavStyle = styled.nav`
   position: fixed;
@@ -39,6 +58,7 @@ const NavLiStyle = styled.li`
 
 const Nav = () => (
   <Fragment>
+    <GlobalStyle />
     <NavStyle>
       <NavContent>
         <NavUlStyle>

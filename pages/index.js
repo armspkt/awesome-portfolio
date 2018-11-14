@@ -1,18 +1,14 @@
 console.time('timer')
 
 import React, { Component } from 'react'
-import Link from 'next/link'
+import styled from 'styled-components'
+import media from 'styled-media-query'
+import Particles from 'react-particles-js'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import TypeMessage from '../components/common/Typed'
 import AtomSpinner from '../components/common/AtomSpinner'
-import styled from 'styled-components'
-import media from 'styled-media-query'
-import Particles from 'react-particles-js'
 import ParticleConfig from '../static/particlesjs-config.json'
-
-// https://github.com/Wufe/react-particles-js
-// https://github.com/VincentGarreau/particles.js/
 
 // https://flatuicolors.com/palette/us
 
@@ -89,7 +85,6 @@ class Index extends Component {
   }
 
   componentDidMount() {
-    console.timeEnd('timer')
     window.addEventListener('resize', this.handleOnResize)
     setTimeout(() => {
       console.timeEnd('timer')
@@ -122,7 +117,7 @@ class Index extends Component {
         {!this.state.loading && (
           <div>
             <Container>
-              <ParticlesStyle params={ParticleConfig} />
+              {/* <ParticlesStyle params={ParticleConfig} /> */}
               <div>
                 <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
                 {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}

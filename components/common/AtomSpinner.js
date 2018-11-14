@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { Transition, config } from 'react-spring'
+import { Transition, animated, config } from 'react-spring'
 import StarParallax from './StarParallax'
 
 const GlobalStyle = createGlobalStyle`
@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Container = styled.div`
+const Container = styled(animated.div)`
   position: fixed;
   width: 100%;
   height: 100%;
@@ -116,6 +116,7 @@ const spring = { ...config.default, precision: 0.1, duration: 500 }
 const AtomSpiner = ({ loading }) => {
   return (
     <Transition
+      native
       items={loading}
       from={{ opacity: 1 }}
       enter={{ opacity: 1 }}

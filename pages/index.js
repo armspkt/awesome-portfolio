@@ -9,6 +9,7 @@ import Nav from '../components/nav'
 import TypeMessage from '../components/common/Typed'
 import AtomSpinner from '../components/common/AtomSpinner'
 import ParticleConfig from '../static/particlesjs-config.json'
+import Profile from '../components/Profile'
 
 // https://flatuicolors.com/palette/us
 
@@ -117,7 +118,7 @@ class Index extends Component {
         {!this.state.loading && (
           <div>
             <Container>
-              {/* <ParticlesStyle params={ParticleConfig} /> */}
+              <ParticlesStyle params={ParticleConfig} />
               <div>
                 <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
                 {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}
@@ -129,6 +130,8 @@ class Index extends Component {
             </RainbowBackground>
 
             {/* https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/ */}
+
+            <Profile />
           </div>
         )}
       </div>

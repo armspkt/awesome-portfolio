@@ -1,5 +1,3 @@
-console.time('timer')
-
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
@@ -7,10 +5,8 @@ import Particles from 'react-particles-js'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import TypeMessage from '../components/common/Typed'
-import AtomSpinner from '../components/common/AtomSpinner'
 import ParticleConfig from '../static/particlesjs-config.json'
 import Profile from '../components/Profile'
-
 // https://flatuicolors.com/palette/us
 
 const ParticlesStyle = styled(Particles)`
@@ -81,18 +77,9 @@ const RainbowBackground = styled.div`
 `
 
 class Index extends Component {
-  state = {
-    loading: true
-  }
-
   componentDidMount() {
     window.addEventListener('resize', this.handleOnResize)
-    setTimeout(() => {
-      console.timeEnd('timer')
-
-      this.handleOnResize()
-      this.setState({ loading: false })
-    }, 800)
+    this.handleOnResize()
   }
 
   componentWillUnmount() {
@@ -110,30 +97,29 @@ class Index extends Component {
     return (
       <div>
         <link rel="preload" href="/static/mac-bg-min.jpg" as="image" />
-        <AtomSpinner loading={this.state.loading} />
         <div>
           <Head title="Home" />
           <Nav />
         </div>
-        {!this.state.loading && (
-          <div>
-            <Container>
-              <ParticlesStyle params={ParticleConfig} />
-              <div>
-                <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
-                {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}
-              </div>
-            </Container>
-            <Rainbow>Rainbows are colorful and scalable and lovely</Rainbow>
-            <RainbowBackground>
-              inspire by https://devcon4.ethereum.org/
-            </RainbowBackground>
+        {/* {!this.state.loading && ( */}
+        <div>
+          <Container>
+            {/* <ParticlesStyle params={ParticleConfig} /> */}
+            <div>
+              <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
+              {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}
+            </div>
+          </Container>
+          <Rainbow>Rainbows are colorful and scalable and lovely</Rainbow>
+          <RainbowBackground>
+            inspire by https://devcon4.ethereum.org/
+          </RainbowBackground>
 
-            {/* https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/ */}
+          {/* https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/ */}
 
-            <Profile />
-          </div>
-        )}
+          <Profile />
+        </div>
+        {/* )} */}
       </div>
     )
   }

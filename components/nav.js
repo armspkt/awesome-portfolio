@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-// import Link from 'next/link'
+import Link from 'next/link'
 import styled, { ServerStyleSheet, createGlobalStyle } from 'styled-components'
 import media from 'styled-media-query'
 
@@ -62,8 +62,13 @@ const Nav = () => (
     <NavStyle>
       <NavContent>
         <NavUlStyle>
-          <NavLiStyle>HOME</NavLiStyle>
-          <NavLiStyle>GITHUB</NavLiStyle>
+          <Link href="/home" passHref>
+            <NavLiStyle>HOME</NavLiStyle>
+          </Link>
+
+          <Link href="/" passHref>
+            <NavLiStyle>GITHUB</NavLiStyle>
+          </Link>
         </NavUlStyle>
       </NavContent>
     </NavStyle>

@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Spring, animated } from 'react-spring'
+import ProgressiveImage from 'react-progressive-image'
 
 const ProfileContainer = styled.div`
   display: flex;
@@ -58,7 +59,25 @@ class Profile extends Component {
                 }
                 onMouseLeave={() => this.setState({ xys: [0, 0, 1] })}
                 style={props}
-              />
+              >
+                <ProgressiveImage
+                  delay={3000}
+                  src="/static/arm.jpg"
+                  placeholder={'/static/arm.jpg'}
+                >
+                  {(src, loading) => (
+                    <img
+                      style={{
+                        filter: loading ? 'blur(10px)' : 'none',
+                        transition: 'all .1s ease-in'
+                      }}
+                      width="200"
+                      src={src}
+                      alt=""
+                    />
+                  )}
+                </ProgressiveImage>
+              </CardContainer>
             )
           }}
         </Spring>

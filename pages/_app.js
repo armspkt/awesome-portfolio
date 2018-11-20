@@ -29,6 +29,13 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props
     const { loading } = this.state
+    const items = [
+      {
+        id: this.props.router.route,
+        Component: this.props.Component,
+        pageProps: this.props.pageProps
+      }
+    ]
 
     return (
       <Container>
@@ -38,7 +45,9 @@ export default class MyApp extends App {
         {!loading && (
           <Transition
             native
-            items={[]}
+            unique
+            items={items}
+            keys={items => items.id}
             from={{
               opacity: 0,
               position: 'absolute',
@@ -46,11 +55,10 @@ export default class MyApp extends App {
               height: '100%'
             }}
             enter={{ opacity: 1 }}
-            leave={{ opacity: 0 }}
-            keys={this.props.router.route}
+            leave={{ opacity: 0, position: 'absolute' }}
           >
-            {item => props => (
-              <animated.div style={props}>
+            {({ Component, pageProps }) => styles => (
+              <animated.div style={styles}>
                 <Component {...pageProps} />
               </animated.div>
             )}

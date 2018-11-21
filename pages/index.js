@@ -1,31 +1,32 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import media from 'styled-media-query'
-import Particles from 'react-particles-js'
+// import media from 'styled-media-query'
+// import Particles from 'react-particles-js'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import TypeMessage from '../components/common/Typed'
-import ParticleConfig from '../static/particlesjs-config.json'
+// import ParticleConfig from '../static/particlesjs-config.json'
 import Profile from '../components/Profile'
+
 // https://flatuicolors.com/palette/us
 
-const ParticlesStyle = styled(Particles)`
-  width: 100%;
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-  background-image: url('/static/mac-bg-min.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  ${media.lessThan('small')`
-    background-size: cover;
-    background-position: 47.5% 50%;
-  `};
+// const ParticlesStyle = styled(Particles)`
+//   width: 100%;
+//   height: 100vh;
+//   height: calc(var(--vh, 1vh) * 100);
+//   background-image: url('/static/mac-bg-min.jpg');
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: 50% 50%;
+//   ${media.lessThan('small')`
+//     background-size: cover;
+//     background-position: 47.5% 50%;
+//   `};
 
-  canvas {
-    position: absolute;
-  }
-`
+//   canvas {
+//     position: absolute;
+//   }
+// `
 
 const Container = styled.div`
   position: relative;
@@ -101,7 +102,6 @@ class Index extends Component {
           <Head title="Home" />
           <Nav />
         </div>
-        {/* {!this.state.loading && ( */}
         <div>
           <Container>
             {/* <ParticlesStyle params={ParticleConfig} /> */}

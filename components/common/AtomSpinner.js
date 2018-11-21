@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { Transition, animated, config } from 'react-spring'
+import Transition from 'react-transition-group/Transition'
 import StarParallax from './StarParallax'
 
 const GlobalStyle = createGlobalStyle`
@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Container = styled(animated.div)`
+const Container = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
@@ -25,7 +25,7 @@ const Container = styled(animated.div)`
   }
 `
 
-const AtomSpinnerContainer = styled.div`
+const AtomSpinner = styled.div`
   height: 120px;
   width: 120px;
   overflow: hidden;
@@ -53,47 +53,36 @@ const SpinnerLine = styled.div`
   border-right-style: solid;
   border-top-style: solid;
   border-top-color: transparent;
+  will-change: transform;
 
   &:nth-child(1) {
-    will-change: transform;
     animation: atom-spinner-animation-1 1s linear infinite;
-    -webkit-animation: atom-spinner-animation-1 1s linear infinite;
     transform: rotateZ(120deg) rotateX(66deg) rotateZ(0deg);
-    -webkit-transform: rotateZ(120deg) rotateX(66deg) rotateZ(0deg);
   }
   &:nth-child(2) {
-    will-change: transform;
     animation: atom-spinner-animation-2 1s linear infinite;
-    -webkit-animation: atom-spinner-animation-2 1s linear infinite;
     transform: rotateZ(240deg) rotateX(66deg) rotateZ(0deg);
-    -webkit-transform: rotateZ(240deg) rotateX(66deg) rotateZ(0deg);
   }
   &:nth-child(3) {
-    will-change: transform;
     animation: atom-spinner-animation-3 1s linear infinite;
-    -webkit-animation: atom-spinner-animation-3 1s linear infinite;
     transform: rotateZ(360deg) rotateX(66deg) rotateZ(0deg);
-    -webkit-transform: rotateZ(360deg) rotateX(66deg) rotateZ(0deg);
   }
 
   @keyframes atom-spinner-animation-1 {
     100% {
       transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
-      -webkit-transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
     }
   }
 
   @keyframes atom-spinner-animation-2 {
     100% {
       transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
-      -webkit-transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
     }
   }
 
   @keyframes atom-spinner-animation-3 {
     100% {
       transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
-      -webkit-transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
     }
   }
 `
@@ -111,37 +100,41 @@ const SpinnerCircle = styled.div`
   will-change: transform;
 `
 
-const spring = { ...config.default, precision: 0.1, duration: 500 }
+const duration = 500
 
-const AtomSpiner = ({ loading }) => {
-  return (
-    <Transition
-      native
-      items={loading}
-      from={{ opacity: 1 }}
-      enter={{ opacity: 1 }}
-      leave={{ opacity: 0 }}
-      config={spring}
-    >
-      {loading =>
-        loading &&
-        (props => (
-          <Container style={props}>
-            <GlobalStyle />
-            <StarParallax />
-            <AtomSpinnerContainer>
-              <SpinnerIner>
-                <SpinnerLine />
-                <SpinnerLine />
-                <SpinnerLine />
-                <SpinnerCircle />
-              </SpinnerIner>
-            </AtomSpinnerContainer>
-          </Container>
-        ))
-      }
-    </Transition>
-  )
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+  willChange: 'opacity'
 }
 
-export default AtomSpiner
+const transitionStyles = {
+  entering: { opacity: 0 },
+  entered: { opacity: 1 }
+}
+
+const Fade = ({ in: inProp }) => (
+  <Transition in={inProp} timeout={duration} unmountOnExit>
+    {state => (
+      <Container
+        style={{
+          ...defaultStyle,
+          ...transitionStyles[state]
+        }}
+      >
+        <GlobalStyle />
+        <StarParallax />
+        <AtomSpinner>
+          <SpinnerIner>
+            <SpinnerLine />
+            <SpinnerLine />
+            <SpinnerLine />
+            <SpinnerCircle />
+          </SpinnerIner>
+        </AtomSpinner>
+      </Container>
+    )}
+  </Transition>
+)
+
+export default props => <Fade in={props.loading} />

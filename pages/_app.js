@@ -23,7 +23,7 @@ export default class MyApp extends App {
     setTimeout(() => {
       this.setState({ loading: false })
       console.timeEnd('timer')
-    }, 800)
+    }, 600)
   }
 
   render() {
@@ -39,28 +39,26 @@ export default class MyApp extends App {
 
     return (
       <Container>
-        {loading && <AtomSpinner loading={loading} />}
+        <AtomSpinner loading={loading} />
 
-        {!loading && (
-          <div style={{ position: 'relative' }}>
-            <Transition
-              native
-              unique
-              items={items}
-              keys={items => items.id}
-              from={{ opacity: 0 }}
-              initial={{ opacity: 0 }}
-              enter={{ opacity: 1 }}
-              leave={{ opacity: 0, position: 'absolute' }}
-            >
-              {({ Component, pageProps }) => styles => (
-                <animated.div style={{ ...styles, width: '100%' }}>
-                  <Component {...pageProps} />
-                </animated.div>
-              )}
-            </Transition>
-          </div>
-        )}
+        <div style={{ position: 'relative' }}>
+          <Transition
+            native
+            unique
+            items={items}
+            keys={items => items.id}
+            from={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            enter={{ opacity: 1 }}
+            leave={{ opacity: 0, position: 'absolute' }}
+          >
+            {({ Component, pageProps }) => styles => (
+              <animated.div style={{ ...styles, width: '100%' }}>
+                <Component {...pageProps} />
+              </animated.div>
+            )}
+          </Transition>
+        </div>
       </Container>
     )
   }

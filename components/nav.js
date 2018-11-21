@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
-import styled, { ServerStyleSheet, createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import media from 'styled-media-query'
 
 const GlobalStyle = createGlobalStyle`

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import App, { Container } from 'next/app'
 import { Transition, animated } from 'react-spring'
 import AtomSpinner from '../components/common/AtomSpinner'
@@ -39,12 +39,7 @@ export default class MyApp extends App {
 
     return (
       <Container>
-        {loading && (
-          <Fragment>
-            <AtomSpinner loading={loading} />
-            <Component {...pageProps} />
-          </Fragment>
-        )}
+        {loading && <AtomSpinner loading={loading} />}
 
         {!loading && (
           <div style={{ position: 'relative' }}>

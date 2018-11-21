@@ -53,7 +53,6 @@ const SpinnerLine = styled.div`
   border-right-style: solid;
   border-top-style: solid;
   border-top-color: transparent;
-  will-change: transform;
 
   &:nth-child(1) {
     animation: atom-spinner-animation-1 1s linear infinite;
@@ -96,8 +95,8 @@ const SpinnerCircle = styled.div`
   height: 20px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   will-change: transform;
+  transform: translate(-50%, -50%);
 `
 
 const duration = 500

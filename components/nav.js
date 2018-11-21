@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
 import styled, { createGlobalStyle } from 'styled-components'
-import media from 'styled-media-query'
+// import media from 'styled-media-query'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {

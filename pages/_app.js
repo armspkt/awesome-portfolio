@@ -47,8 +47,8 @@ export default class MyApp extends App {
             unique
             items={items}
             keys={items => items.id}
-            from={{ opacity: 0 }}
             initial={{ opacity: 0 }}
+            from={{ opacity: 0 }}
             enter={{ opacity: 1 }}
             leave={{ opacity: 0, position: 'absolute' }}
           >

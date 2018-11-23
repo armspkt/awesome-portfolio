@@ -658,7 +658,7 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.1.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2":
   version "7.1.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.1.5.tgz#4170907641cf1f61508f563ece3725150cc6fe39"
   integrity sha512-xKnPpXG/pvK1B90JkwwxSGii90rQGKtzcMt2gI5G6+M0REXaq6rOHsGC2ay6/d0Uje7zzvSzjEzfR3ENhFlrfA==
@@ -4133,10 +4133,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-particles-js@^2.3.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/react-particles-js/-/react-particles-js-2.4.0.tgz#8c95dafb6e9bcf392c96dd30888e76001c748ed3"
-  integrity sha512-J3qd/OxmDJf4wBFnuRPnMFADvnEEEsLjfNX4fGEYUwA77suoVddFVrCy+A2CTvTVfHVlBkxKvn2Tqp5cCGuxug==
+react-particles-js@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/react-particles-js/-/react-particles-js-2.4.2.tgz#34a4d1ea15eaebcbb068f7b6a7c43b18792fcf65"
+  integrity sha512-/rfpLRYUA4JFEBBM8cN3X+kEr9P7J2lXktJi81ugcK6B9H69xNlDFKXOUYe+YizW8E5NapxNgubAcKYt0Co7TQ==
 
 react-progressive-image@^0.6.0:
   version "0.6.0"
@@ -4151,12 +4151,12 @@ react-scroll@^1.7.10:
     lodash.throttle "^4.1.1"
     prop-types "^15.5.8"
 
-react-spring@^6.1.8:
-  version "6.1.8"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-6.1.8.tgz#ce20f0fb07722f977510ea865801df3fdc37d819"
-  integrity sha512-dnyMyRYI9SBt/kEhGb/BHn+in8x4emZ6otukdhokCZAo4N6pcw2tyIQpcoXN8+BvZzaGZyErB4SVfWtlhOoPEw==
+react-spring@^6.1.9:
+  version "6.1.9"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-6.1.9.tgz#bf858aedb5bd954c83545c27731a9f05320a49fe"
+  integrity sha512-SLgijUY3XL2fWZrb1N/oVxnQaZloYtSm2Fy6VngC2xoJRKwXY0i0KH03CGXV5iBKV0GhST4oCI1XTy75V40K9A==
   dependencies:
-    "@babel/runtime" "^7.1.2"
+    "@babel/runtime" "^7.0.0"
 
 react-transition-group@^2.5.0:
   version "2.5.0"

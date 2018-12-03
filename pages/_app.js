@@ -40,6 +40,7 @@ export default class MyApp extends App {
     return (
       <Container>
         <AtomSpinner loading={loading} />
+        {loading && <Component {...pageProps} />}
 
         <div style={{ position: 'relative' }}>
           <Transition

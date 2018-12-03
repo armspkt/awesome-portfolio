@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Head from '../components/head'
 import Nav from '../components/nav'
 import styled from 'styled-components'
 
@@ -17,6 +18,7 @@ const Container = styled.main`
 
 export default () => (
   <div>
+    <Head title="Home2" />
     <Nav />
     <Container>
       <Link href="/ ">

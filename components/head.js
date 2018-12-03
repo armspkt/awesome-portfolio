@@ -1,17 +1,23 @@
 import NextHead from 'next/head'
 import { string } from 'prop-types'
 
+const defaultTitle = `Arm Supakorn`
 const defaultDescription = `rainstormza's portfolio`
-const defaultOGURL = ''
-const defaultOGImage = ''
+const defaultOGURL = 'http://armspkt.firebaseapp.com'
+const defaultOGImage = 'https://armspkt.firebaseapp.com/static/arm.jpg'
 
 const Head = props => (
   <NextHead>
-    <title>{props.title || ''}</title>
+    <title>{props.title || defaultTitle}</title>
     <meta
       name="description"
       content={props.description || defaultDescription}
     />
+    <meta
+      name="keywords"
+      content="rainstormza, Supakorn Thongtra, Arm, Portfolio, React, Nextjs, styled-components"
+    />
+    <meta name="author" content="Supakorn Thongtra" />
     {/* <meta charSet="utf-8" />
     <meta
       name="viewport"
@@ -22,7 +28,7 @@ const Head = props => (
     <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
     <link rel="icon" href="/static/favicon.ico" />
     <meta property="og:url" content={props.url || defaultOGURL} />
-    <meta property="og:title" content={props.title || ''} />
+    <meta property="og:title" content={props.title || defaultTitle} />
     <meta
       property="og:description"
       content={props.description || defaultDescription}
@@ -33,6 +39,7 @@ const Head = props => (
     <meta property="og:image" content={props.ogImage || defaultOGImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Arm is smiling." />
   </NextHead>
 )
 

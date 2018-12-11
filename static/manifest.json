@@ -1,0 +1,16 @@
+{
+  "name": "nextjs-hn",
+  "short_name": "nextjs-hn",
+  "description": "A Hacker News Progressive Web App built using Next.js",
+  "icons": [
+    {
+      "src": "/static/favicon.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ff80cc",
+  "background_color": "#fff",
+  "start_url": "/",
+  "display": "standalone"
+}

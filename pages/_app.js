@@ -20,10 +20,14 @@ export default class MyApp extends App {
   }
 
   componentDidMount() {
-    setTimeout(() => {
+    // setTimeout(() => {
+    //   this.setState({ loading: false })
+    //   console.timeEnd('timer')
+    // }, 16.667)
+    requestAnimationFrame(() => {
       this.setState({ loading: false })
       console.timeEnd('timer')
-    }, 600)
+    })
   }
 
   render() {

@@ -2,8 +2,9 @@ const fs = require('fs')
 const { join } = require('path')
 const { promisify } = require('util')
 const copyFile = promisify(fs.copyFile)
+const withOffline = require('next-offline')
 
-module.exports = {
+module.exports = withOffline({
   exportPathMap: async function(
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
@@ -13,6 +14,10 @@ module.exports = {
     }
     // This will copy robots.txt from your project root into the out directory
     await copyFile(join(dir, 'static/robots.txt'), join(outDir, 'robots.txt'))
+    await copyFile(
+      join(dir, 'static/manifest.json'),
+      join(outDir, 'manifest.json')
+    )
     return defaultPathMap
   },
   webpack: config => {
@@ -37,4 +42,4 @@ module.exports = {
 
     return config
   }
-}
+})

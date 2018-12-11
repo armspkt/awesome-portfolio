@@ -32,6 +32,7 @@ export default class MyDocument extends Document {
             name="google-site-verification"
             content="tSFXXxeK1C4D-BZuHfJSc0nbyPqDTB7U60rXqIn9MOE"
           />
+          <link rel="manifest" href="/static/manifest.json" />
         </Head>
         <body>
           <Main />

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
-import Particles from 'react-particles-js'
-import ParticleConfig from '../static/particlesjs-config.json'
+// import Particles from 'react-particles-js'
+// import ParticleConfig from '../static/particlesjs-config.json'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import TypeMessage from '../components/common/Typed'
@@ -10,23 +10,23 @@ import Profile from '../components/Profile'
 
 // https://flatuicolors.com/palette/us
 
-const ParticlesStyle = styled(Particles)`
-  width: 100%;
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-  background-image: url('/static/mac-bg-min.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  ${media.lessThan('small')`
-    background-size: cover;
-    background-position: 47.5% 50%;
-  `};
+// const ParticlesStyle = styled(Particles)`
+//   width: 100%;
+//   height: 100vh;
+//   height: calc(var(--vh, 1vh) * 100);
+//   background-image: url('/static/mac-bg-min.jpg');
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: 50% 50%;
+//   ${media.lessThan('small')`
+//     background-size: cover;
+//     background-position: 47.5% 50%;
+//   `};
 
-  canvas {
-    position: absolute;
-  }
-`
+//   canvas {
+//     position: absolute;
+//   }
+// `
 
 const Container = styled.div`
   position: relative;
@@ -97,19 +97,21 @@ class Index extends Component {
   render() {
     return (
       <div>
-        <link rel="preload" href="/static/mac-bg-min.jpg" as="image" />
+        {/* <link rel="preload" href="/static/mac-bg-min.jpg" as="image" /> */}
         <div>
-          <Head title="Home" />
+          <Head />
           <Nav />
         </div>
         <div>
           <Container>
-            <ParticlesStyle params={ParticleConfig} />
+            {/* <ParticlesStyle params={ParticleConfig} /> */}
             <div>
               <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
               {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}
             </div>
           </Container>
+          <h1>Supakorn Thongtra</h1>
+          <h1>rainstormza</h1>
           <Rainbow>Rainbows are colorful and scalable and lovely</Rainbow>
           <RainbowBackground>
             inspire by https://devcon4.ethereum.org/

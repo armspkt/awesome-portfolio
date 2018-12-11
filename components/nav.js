@@ -62,11 +62,11 @@ const Nav = () => (
     <NavStyle>
       <NavContent>
         <NavUlStyle>
-          <Link href="/home" passHref>
+          <Link prefetch href="/home" passHref>
             <NavLiStyle>HOME</NavLiStyle>
           </Link>
 
-          <Link href="/" passHref>
+          <Link prefetch href="/" passHref>
             <NavLiStyle>GITHUB</NavLiStyle>
           </Link>
         </NavUlStyle>

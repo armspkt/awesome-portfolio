@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Head from '../components/head'
 import Nav from '../components/nav'
 import styled from 'styled-components'
+// import { Parallax, ParallaxLayer } from 'react-spring/dist/addons.cjs.js'
 
 const Container = styled.main`
   display: flex;

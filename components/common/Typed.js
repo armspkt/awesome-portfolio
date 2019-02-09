@@ -7,8 +7,6 @@ const TypedContainer = styled.div`
   font-family: 'Operator Mono Light Italic';
   font-size: 2rem;
   position: absolute;
-  /* width: 100%; */
-  /* height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +37,7 @@ class TypeMessage extends Component {
     const options = {
       strings: strings,
       smartBackspace: true,
-      loop: true,
+      loop: false,
       typeSpeed: 100,
       backSpeed: 50
     }

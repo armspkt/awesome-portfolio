@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Spring, animated } from 'react-spring'
+import { Spring, animated } from 'react-spring/renderprops.cjs'
 import ProgressiveImage from 'react-progressive-image'
 
 const ProfileContainer = styled.div`
@@ -10,7 +10,7 @@ const ProfileContainer = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: radial-gradient(ellipse at center, #eef0f2 0%, #90a2b2 100%);
+  /* background: radial-gradient(ellipse at center, #eef0f2 0%, #90a2b2 100%); */
 `
 
 const CardContainer = styled(animated.div)`
@@ -18,7 +18,7 @@ const CardContainer = styled(animated.div)`
   height: 45ch;
   background: grey;
   border-radius: 5px;
-  background-image: url('/static/arm.jpg');
+  background-image: url('/static/arm.png');
   background-size: cover;
   background-position: center center;
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
@@ -62,8 +62,8 @@ class Profile extends Component {
               >
                 <ProgressiveImage
                   delay={3000}
-                  src="/static/arm.jpg"
-                  placeholder={'/static/arm.jpg'}
+                  src="/static/arm.png"
+                  placeholder={'/static/arm.png'}
                 >
                   {(src, loading) => (
                     <img

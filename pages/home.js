@@ -10,7 +10,7 @@ const Container = styled.main`
   justify-content: center;
   position: relative;
   width: 100%;
-  height: 93vh;
+  height: 100vh;
   background: grey;
   font-size: 10em;
   font-weight: 800;

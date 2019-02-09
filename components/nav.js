@@ -52,8 +52,8 @@ const NavUlStyle = styled.ul`
 `
 
 const NavLiStyle = styled.li`
+  cursor: pointer;
   padding: 10px;
-  color: white;
 `
 
 const Nav = () => (

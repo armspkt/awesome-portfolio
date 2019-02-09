@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 // import Particles from 'react-particles-js'
@@ -7,6 +7,7 @@ import Head from '../components/head'
 import Nav from '../components/nav'
 import TypeMessage from '../components/common/Typed'
 import Profile from '../components/Profile'
+import Glitch from '../components/Glitch'
 
 // https://flatuicolors.com/palette/us
 
@@ -30,42 +31,7 @@ import Profile from '../components/Profile'
 
 const Container = styled.div`
   position: relative;
-`
-
-const Rainbow = styled.span`
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(0, #f22),
-    color-stop(0.15, #f2f),
-    color-stop(0.3, #22f),
-    color-stop(0.45, #2ff),
-    color-stop(0.6, #2f2),
-    color-stop(0.75, #2f2),
-    color-stop(0.9, #ff2),
-    color-stop(1, #f22)
-  );
-  background-image: gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(0, #f22),
-    color-stop(0.15, #f2f),
-    color-stop(0.3, #22f),
-    color-stop(0.45, #2ff),
-    color-stop(0.6, #2f2),
-    color-stop(0.75, #2f2),
-    color-stop(0.9, #ff2),
-    color-stop(1, #f22)
-  );
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-`
-
-const RainbowBackground = styled.div`
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     #fca09a,
     #fcccd3,
@@ -73,8 +39,18 @@ const RainbowBackground = styled.div`
     #98ddad,
     #81d7ec,
     #a0aaed
-  );
-  height: 100px;
+  ); */
+  background: linear-gradient(45deg, #ee76ad 0%, #efac78 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+const TypedContainer = styled.div`
+  position: absolute;
+  z-index: 1;
 `
 
 class Index extends Component {
@@ -96,37 +72,26 @@ class Index extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         {/* <link rel="preload" href="/static/mac-bg-min.jpg" as="image" /> */}
-        <div>
-          <Head />
-          <Nav />
-        </div>
-        <div>
-          <Container>
-            {/* <ParticlesStyle params={ParticleConfig} /> */}
-            <div>
-              <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
-              {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}
-            </div>
-          </Container>
-          <h1>Supakorn Thongtra</h1>
-          <h1>rainstormza</h1>
-          <Rainbow>Rainbows are colorful and scalable and lovely</Rainbow>
-          <RainbowBackground>
-            inspire by https://devcon4.ethereum.org/
-          </RainbowBackground>
-
-          {/* https://rainbowcoding.com/2011/12/02/how-to-create-rainbow-text-in-html-css-javascript/ */}
-
-          <Profile />
-        </div>
-        {/* )} */}
-      </div>
+        <Head />
+        <Nav />
+        <Container>
+          {/* <ParticlesStyle params={ParticleConfig} /> */}
+          <TypedContainer>
+            <TypeMessage strings={[`I'm developer.`, `こんにちは`]} />
+            {/* こんにちは　KONNICHIWA (Con-ni-chi-wah) Hello/Hi */}
+          </TypedContainer>
+          <div>
+            <h1>Supakorn Thongtra</h1>
+            <h1>rainstormza</h1>
+          </div>
+          {/* <Profile /> */}
+          <Glitch />
+        </Container>
+      </Fragment>
     )
   }
 }
 
 export default Index
-
-// https://github.com/fisshy/react-scroll

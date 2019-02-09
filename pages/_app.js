@@ -1,6 +1,6 @@
 import React from 'react'
 import App, { Container } from 'next/app'
-import { Transition, animated } from 'react-spring'
+import { Transition, animated } from 'react-spring/renderprops.cjs'
 import AtomSpinner from '../components/common/AtomSpinner'
 console.time('timer')
 
@@ -36,8 +36,8 @@ export default class MyApp extends App {
     const items = [
       {
         id: router.route,
-        Component: Component,
-        pageProps: pageProps
+        Component,
+        pageProps
       }
     ]
 

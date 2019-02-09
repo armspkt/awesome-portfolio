@@ -2,7 +2,7 @@ import NextHead from 'next/head'
 import { string } from 'prop-types'
 
 const defaultTitle = `Arm Supakorn`
-const defaultDescription = `Supakorn's awesome portfolio that used Nextjs to create. Usage React-Spring to create awesome animation. Usage Reactjs`
+const defaultDescription = `Supakorn's awesome portfolio that used Nextjs to create. Usage React-Spring to create awesome animation.`
 const defaultOGURL = 'http://armspkt.firebaseapp.com/'
 const defaultOGImage = 'https://armspkt.firebaseapp.com/static/arm.jpg'
 
@@ -15,12 +15,12 @@ const Head = props => (
     />
     <meta
       name="keywords"
-      content="rainstormza, Supakorn Thongtra, Arm, Portfolio, React, Nextjs, styled-components"
+      content="rainstormza, Supakorn Thongtra, Arm, armspkt, Portfolio, React, Nextjs, styled-components, react-spring"
     />
     <meta name="author" content="Supakorn Thongtra" />
-    <link rel="icon" sizes="192x192" href="/static/touch-icon.png" />
-    <link rel="apple-touch-icon" href="/static/touch-icon.png" />
-    <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
+    <link rel="icon" sizes="192x192" href="/static/favicon.ico" />
+    <link rel="apple-touch-icon" href="/static/favicon.ico" />
+    <link rel="mask-icon" href="/static/favicon.ico" color="#49B882" />
     <link rel="icon" href="/static/favicon.ico" />
 
     <meta property="fb:app_id" content="1980447875380995" />

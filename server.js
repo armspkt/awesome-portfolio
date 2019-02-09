@@ -11,6 +11,7 @@ app.prepare().then(() => {
     const parsedUrl = parse(req.url, true)
     const { pathname } = parsedUrl
 
+    // handle GET request to /service-worker.js
     if (pathname === '/service-worker.js') {
       const filePath = join(__dirname, '.next', pathname)
 
@@ -22,3 +23,5 @@ app.prepare().then(() => {
     console.log(`> Ready on http://localhost:${3000}`)
   })
 })
+
+// https://github.com/hanford/next-offline

@@ -2,7 +2,7 @@ import React from 'react'
 import App, { Container } from 'next/app'
 import { Transition, animated } from 'react-spring/renderprops.cjs'
 import AtomSpinner from '../components/common/AtomSpinner'
-console.time('timer')
+// console.time('timer')
 
 export default class MyApp extends App {
   state = {
@@ -26,12 +26,13 @@ export default class MyApp extends App {
     // }, 16.667)
     requestAnimationFrame(() => {
       this.setState({ loading: false })
-      console.timeEnd('timer')
+      // console.timeEnd('timer')
     })
   }
 
   render() {
-    const { Component, pageProps, router } = this.props
+    const { props } = this as any
+    const { Component, pageProps, router } = props
     const { loading } = this.state
     const items = [
       {
@@ -55,10 +56,18 @@ export default class MyApp extends App {
             initial={{ opacity: 0 }}
             from={{ opacity: 0 }}
             enter={{ opacity: 1 }}
-            leave={{ opacity: 0, position: 'absolute' }}
+            leave={{
+              opacity: 0,
+              position: 'absolute'
+            }}
           >
             {({ Component, pageProps }) => styles => (
-              <animated.div style={{ ...styles, width: '100%' }}>
+              <animated.div
+                style={{
+                  ...styles,
+                  width: '100%'
+                }}
+              >
                 <Component {...pageProps} />
               </animated.div>
             )}

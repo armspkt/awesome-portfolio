@@ -16,6 +16,6 @@ export default () => (
   <div>
     <Head title="About" />
     <Nav />
-    <Container>Home</Container>
+    <Container>About</Container>
   </div>
 )

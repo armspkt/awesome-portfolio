@@ -40,7 +40,7 @@
     "@types/material-ui": "^0.21.6",
     "@types/next": "^8.0.1",
     "@types/react": "^16.8.3",
-    "@types/react-dom": "^16.8.1",
+    "@types/react-dom": "^16.8.2",
     "@types/react-transition-group": "^2.0.16",
     "@types/styled-components": "^4.1.10",
     "babel-plugin-styled-components": "^1.10.0",

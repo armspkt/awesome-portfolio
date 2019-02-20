@@ -28,7 +28,7 @@ const TypeMessage = props => {
       strings: strings,
       smartBackspace: true,
       loop: false,
-      typeSpeed: 100,
+      typeSpeed: 50,
       backSpeed: 50
     }
     // typedRef refers to the <span> in the render() method

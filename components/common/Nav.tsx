@@ -15,31 +15,16 @@ const GlobalStyle = createGlobalStyle`
     src: url('../static/fonts/OperatorMono-LightItalic.otf');
   }
 
-  @font-face {
-    font-family: 'SF Pro Light';
-    src: url('../static/fonts/SF PRO/SF-Pro-Display-Light.otf');
-  }
-
-  @font-face {
-    font-family: 'SF Pro Regular';
-    src: url('../static/fonts/SF PRO/SF-Pro-Display-Regular.otf');
-  }
-
-  @font-face {
-    font-family: 'SF Pro Thin';
-    src: url('../static/fonts/SF PRO/SF-Pro-Display-Thin.otf');
-  }
-
   html, body {
     margin: 0;
     padding: 0;
-    font-family: SF Pro Regular,-apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
+    font-family: Roboto,-apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
   }
 `
 
 const NavStyle = styled.nav`
   color: white;
-  font-family: 'SF Pro Light';
+  font-weight: 300;
   font-size: 1.5rem;
   position: fixed;
   width: 100%;

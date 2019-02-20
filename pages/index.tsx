@@ -15,11 +15,11 @@ const Container = styled.div`
 `
 
 const Name = styled.div`
-  font-family: 'SF Pro Regular';
+  font-weight: 400;
   color: white;
 
   span {
-    font-family: 'SF Pro Thin';
+    font-weight: 100;
   }
 `
 

@@ -2,7 +2,8 @@ import { Fragment } from 'react'
 import Link from 'next/link'
 import styled, { createGlobalStyle } from 'styled-components'
 import media from 'styled-media-query'
-// import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button'
+import Icon from '@material-ui/core/Icon'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -29,6 +30,10 @@ const NavStyle = styled.nav`
   position: fixed;
   width: 100%;
   z-index: 999;
+
+  ${media.lessThan('small')`
+    overflow: scroll;
+  `};
 `
 
 const NavContent = styled.div`
@@ -66,8 +71,8 @@ const NavLiStyle = styled.li`
   padding: 10px;
 `
 
-const ButtonContainer = styled.div`
-  margin-left: auto;
+const IconStyle = styled<any>(Icon)`
+  margin-left: 8px;
 `
 
 const Nav = () => (
@@ -80,20 +85,27 @@ const Nav = () => (
             <NavLiStyle>Home</NavLiStyle>
           </Link>
 
-          <Link prefetch href="/about" passHref>
+          <Link href="/about" passHref>
             <NavLiStyle>About</NavLiStyle>
           </Link>
-          <Link prefetch href="/skill" passHref>
+          <Link href="/skill" passHref>
             <NavLiStyle>Skills</NavLiStyle>
           </Link>
           <Link prefetch href="/experience" passHref>
             <NavLiStyle>Experience</NavLiStyle>
           </Link>
-          <ButtonContainer>
-            {/* <Button variant="outlined" color="primary">
+          <Link href="/" passHref>
+            <NavLiStyle>Blog</NavLiStyle>
+          </Link>
+          <Link href="/" passHref>
+            <NavLiStyle>React Playground</NavLiStyle>
+          </Link>
+          <NavLiStyle style={{ marginLeft: 'auto' }}>
+            <Button variant="contained" color="default">
               Contact
-            </Button> */}
-          </ButtonContainer>
+              <IconStyle>send</IconStyle>
+            </Button>
+          </NavLiStyle>
         </NavUlStyle>
       </NavContent>
     </NavStyle>

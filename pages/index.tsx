@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Head from '../components/head'
 import Nav from '../components/common/Nav'
 import TypeMessage from '../components/common/Typed'
+import Profile from '../components/common/Profile'
 
 const Container = styled.div`
   position: relative;
@@ -35,9 +36,12 @@ function Index() {
           </h1>
         </Name>
         <TypeMessage strings={[`I'm developer.`]} />
+        <Profile />
       </Container>
     </Fragment>
   )
 }
 
 export default Index
+
+// https://codesandbox.io/s/y3j31r13zz

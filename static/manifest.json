@@ -4,9 +4,9 @@
   "description": "A Hacker News Progressive Web App built using Next.js",
   "icons": [
     {
-      "src": "/static/favicon.png",
+      "src": "/static/favicon.ico",
       "sizes": "1024x1024",
-      "type": "image/png"
+      "type": "image/ico"
     }
   ],
   "theme_color": "#ff80cc",

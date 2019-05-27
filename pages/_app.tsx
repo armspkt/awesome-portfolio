@@ -2,6 +2,10 @@ import React from 'react'
 import App, { Container } from 'next/app'
 import { Transition, animated } from 'react-spring/renderprops.cjs'
 import AtomSpinner from '../components/common/AtomSpinner'
+import { ThemeProvider } from '@material-ui/styles'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import theme from '../theme/theme'
+
 // console.time('timer')
 
 export default class MyApp extends App {
@@ -9,7 +13,7 @@ export default class MyApp extends App {
     loading: true
   }
 
-  static async getInitialProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
     if (Component.getInitialProps) {
@@ -20,14 +24,18 @@ export default class MyApp extends App {
   }
 
   componentDidMount() {
-    // setTimeout(() => {
-    //   this.setState({ loading: false })
-    //   console.timeEnd('timer')
-    // }, 16.667)
-    requestAnimationFrame(() => {
-      this.setState({ loading: false })
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side')
+    if (jssStyles && jssStyles.parentNode) {
+      jssStyles.parentNode.removeChild(jssStyles)
+    }
+
+    setTimeout(() => {
       // console.timeEnd('timer')
-    })
+      requestAnimationFrame(() => {
+        this.setState({ loading: false })
+      })
+    }, 500)
   }
 
   render() {
@@ -61,14 +69,18 @@ export default class MyApp extends App {
               position: 'absolute'
             }}
           >
-            {({ Component, pageProps }) => styles => (
+            {({ Component, pageProps }) => (styles: any) => (
               <animated.div
                 style={{
                   ...styles,
                   width: '100%'
                 }}
               >
-                <Component {...pageProps} />
+                <ThemeProvider theme={theme}>
+                  {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                  <CssBaseline />
+                  <Component {...pageProps} />
+                </ThemeProvider>
               </animated.div>
             )}
           </Transition>
@@ -77,3 +89,5 @@ export default class MyApp extends App {
     )
   }
 }
+
+//TODO: _app.tsx make performance down in https://web.dev

@@ -1,15 +1,20 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheets } from '@material-ui/styles'
+import flush from 'styled-jsx/server'
+import theme from '../theme/theme'
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx): Promise<any> {
     const sheet = new ServerStyleSheet()
+    const sheets = new ServerStyleSheets()
     const originalRenderPage = ctx.renderPage
 
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+          enhanceApp: App => props =>
+            sheets.collect(sheet.collectStyles(<App {...props} />))
         })
 
       const initialProps = await Document.getInitialProps(ctx)
@@ -19,6 +24,8 @@ export default class MyDocument extends Document {
           <>
             {initialProps.styles}
             {sheet.getStyleElement()}
+            {sheets.getStyleElement()}
+            {flush() || null}
           </>
         )
       }
@@ -32,10 +39,13 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <meta charSet="utf-8" />
+          {/* Use minimum-scale=1 to enable GPU rasterization */}
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
           />
+          {/* PWA primary color */}
+          <meta name="theme-color" content={theme.palette.primary.main} />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
           <meta
             name="google-site-verification"
@@ -44,7 +54,11 @@ export default class MyDocument extends Document {
           <link rel="manifest" href="/static/manifest.json" />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500"
+            href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
           />
         </Head>
         <body>

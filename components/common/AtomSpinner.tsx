@@ -31,7 +31,7 @@ const AtomSpinner = styled.div`
   overflow: hidden;
 `
 
-const SpinnerIner = styled.div`
+const SpinnerInner = styled.div`
   position: relative;
   display: block;
   height: 100%;
@@ -53,6 +53,7 @@ const SpinnerLine = styled.div`
   border-right-style: solid;
   border-top-style: solid;
   border-top-color: transparent;
+  will-change: transform;
 
   &:nth-child(1) {
     animation: atom-spinner-animation-1 1s linear infinite;
@@ -124,12 +125,12 @@ const Fade = ({ in: inProp }) => (
         <GlobalStyle />
         <StarParallax />
         <AtomSpinner>
-          <SpinnerIner>
+          <SpinnerInner>
             <SpinnerLine />
             <SpinnerLine />
             <SpinnerLine />
             <SpinnerCircle />
-          </SpinnerIner>
+          </SpinnerInner>
         </AtomSpinner>
       </Container>
     )}

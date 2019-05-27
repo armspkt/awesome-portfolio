@@ -23,18 +23,18 @@
     ]
   },
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
-    "@material-ui/icons": "^3.0.2",
+    "@material-ui/core": "^4.0.1",
+    "@material-ui/icons": "^4.0.1",
+    "@material-ui/styles": "^4.0.1",
     "@zeit/next-typescript": "^1.1.1",
     "lax.js": "^1.2.3",
     "next": "^8.1.0",
-    "next-offline": "^3.4.0",
+    "next-offline": "^4.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-jss": "^8.6.1",
     "react-progressive-image": "^0.6.0",
-    "react-spring": "^8.0.20",
-    "react-transition-group": "^4.0.0",
+    "react-spring": "^9.0.0-beta.8",
+    "react-transition-group": "^4.0.1",
     "styled-components": "^4.2.0",
     "styled-media-query": "^2.1.1",
     "typed.js": "^2.0.10"
@@ -42,13 +42,14 @@
   "devDependencies": {
     "@types/material-ui": "^0.21.6",
     "@types/next": "^8.0.5",
-    "@types/react": "^16.8.17",
+    "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
     "@types/react-transition-group": "^2.9.1",
-    "@types/styled-components": "^4.1.14",
+    "@types/styled-components": "^4.1.15",
     "babel-plugin-styled-components": "^1.10.0",
-    "husky": "^2.2.0",
-    "lint-staged": "^8.1.6",
-    "prettier": "^1.17.0"
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "typescript": "^3.4.5"
   }
 }

@@ -5,6 +5,7 @@
 // import assign from 'core-js/library/fn/object/assign'
 
 import 'core-js'
+//TODO: remove polyfile then load script faster
 
 // Add your polyfills
 // This files runs at the very beginning (even before React and Next.js core)

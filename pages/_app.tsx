@@ -40,6 +40,12 @@ export default class MyApp extends App {
     }, 500)
   }
 
+  // componentDidCatch(error, errorInfo) {
+  //   console.log('CUSTOM ERROR HANDLING', error)
+  //   // This is needed to render errors correctly in development / production
+  //   super.componentDidCatch(error, errorInfo)
+  // }
+
   render() {
     const { props } = this as any
     const { Component, pageProps, router } = props

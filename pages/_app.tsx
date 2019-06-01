@@ -1,5 +1,7 @@
 import React from 'react'
 import App, { Container } from 'next/app'
+import Error from 'next/error'
+import ErrorBoundary from 'react-error-boundary'
 import { Transition, animated } from 'react-spring/renderprops.cjs'
 import AtomSpinner from '../components/common/AtomSpinner'
 import { ThemeProvider } from '@material-ui/styles'
@@ -51,41 +53,43 @@ export default class MyApp extends App {
     ]
 
     return (
-      <Container>
-        <AtomSpinner loading={loading} />
-        {loading && <Component {...pageProps} />}
+      <ErrorBoundary FallbackComponent={Error}>
+        <Container>
+          <AtomSpinner loading={loading} />
+          {loading && <Component {...pageProps} />}
 
-        <div style={{ position: 'relative' }}>
-          <Transition
-            native
-            unique
-            items={items}
-            keys={items => items.id}
-            initial={{ opacity: 0 }}
-            from={{ opacity: 0 }}
-            enter={{ opacity: 1 }}
-            leave={{
-              opacity: 0,
-              position: 'absolute'
-            }}
-          >
-            {({ Component, pageProps }) => (styles: any) => (
-              <animated.div
-                style={{
-                  ...styles,
-                  width: '100%'
-                }}
-              >
-                <ThemeProvider theme={theme}>
-                  {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                  <CssBaseline />
-                  <Component {...pageProps} />
-                </ThemeProvider>
-              </animated.div>
-            )}
-          </Transition>
-        </div>
-      </Container>
+          <div style={{ position: 'relative' }}>
+            <Transition
+              native
+              unique
+              items={items}
+              keys={items => items.id}
+              initial={{ opacity: 0 }}
+              from={{ opacity: 0 }}
+              enter={{ opacity: 1 }}
+              leave={{
+                opacity: 0,
+                position: 'absolute'
+              }}
+            >
+              {({ Component, pageProps }) => (styles: any) => (
+                <animated.div
+                  style={{
+                    ...styles,
+                    width: '100%'
+                  }}
+                >
+                  <ThemeProvider theme={theme}>
+                    {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                    <CssBaseline />
+                    <Component {...pageProps} />
+                  </ThemeProvider>
+                </animated.div>
+              )}
+            </Transition>
+          </div>
+        </Container>
+      </ErrorBoundary>
     )
   }
 }

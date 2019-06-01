@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import Head from '../components/head'
 import Nav from '../components/common/Nav'
 import TypeMessage from '../components/common/Typed'
 import Profile from '../components/common/Profile'
+// import Rows from '../components/Generic'
 
 const Container = styled.div`
   position: relative;
@@ -25,6 +26,12 @@ const Name = styled.div`
 `
 
 function Index() {
+  // const [count, setCount] = useState(0)
+  // if (count === 1) {
+  //   // Simulate a JS error
+  //   throw new Error('I crashed!')
+  // }
+
   return (
     <Fragment>
       <Head />
@@ -37,6 +44,10 @@ function Index() {
         </Name>
         <TypeMessage strings={[`I'm developer.`]} />
         <Profile />
+        {/* <Rows input={[1]} />
+        <Rows input={1} />
+        <Rows input={true} /> // Also works! */}
+        {/* <button onClick={() => setCount(count + 1)}>Click me {count} </button> */}
       </Container>
     </Fragment>
   )

@@ -32,6 +32,7 @@
     "next-offline": "^4.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-error-boundary": "^1.2.5",
     "react-progressive-image": "^0.6.0",
     "react-spring": "^8.0.20",
     "react-transition-group": "^4.0.1",

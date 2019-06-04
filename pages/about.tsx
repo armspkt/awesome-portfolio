@@ -24,6 +24,7 @@ export default () => {
     document.addEventListener(
       'scroll',
       function(x) {
+        console.log(x)
         lax.update(window.scrollY)
       },
       false

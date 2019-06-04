@@ -1,28 +1,11 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import media from 'styled-media-query'
 import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
-
-const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'Operator Mono Light';
-    src: url('../static/fonts/OperatorMono-Light.otf');
-  }
-
-  @font-face {
-    font-family: 'Operator Mono Light Italic';
-    src: url('../static/fonts/OperatorMono-LightItalic.otf');
-  }
-
-  html, body {
-    margin: 0;
-    padding: 0;
-    font-family: Roboto,-apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
-    font-display: swap;
-  }
-`
+import IconButton from '@material-ui/core/IconButton'
+import SaveAltIcon from '@material-ui/icons/SaveAlt'
 
 const NavStyle = styled.nav`
   color: white;
@@ -78,11 +61,10 @@ const IconStyle = styled<any>(Icon)`
 
 const Nav = () => (
   <Fragment>
-    <GlobalStyle />
     <NavStyle>
       <NavContent>
         <NavUlStyle>
-          <Link prefetch href="/" passHref>
+          {/* <Link prefetch href="/" passHref>
             <NavLiStyle>Home</NavLiStyle>
           </Link>
 
@@ -100,12 +82,17 @@ const Nav = () => (
           </Link>
           <Link href="/" passHref>
             <NavLiStyle>React Playground</NavLiStyle>
-          </Link>
+          </Link> */}
           <NavLiStyle style={{ marginLeft: 'auto' }}>
-            <Button variant="contained" color="default">
+            {/* <Button variant="contained" color="default">
               Contact
               <IconStyle>send</IconStyle>
-            </Button>
+            </Button> */}
+            <a href="/static/supakorn.pdf" target="_blank">
+              <IconButton aria-label="SaveAlt">
+                <SaveAltIcon htmlColor="white" fontSize="large" />
+              </IconButton>
+            </a>
           </NavLiStyle>
         </NavUlStyle>
       </NavContent>

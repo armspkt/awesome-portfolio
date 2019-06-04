@@ -2,11 +2,31 @@ import React from 'react'
 import App, { Container } from 'next/app'
 import Error from 'next/error'
 import ErrorBoundary from 'react-error-boundary'
+import { createGlobalStyle } from 'styled-components'
 import { Transition, animated } from 'react-spring/renderprops.cjs'
 import AtomSpinner from '../components/common/AtomSpinner'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from '../theme/theme'
+
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Operator Mono Light';
+    src: url('../static/fonts/OperatorMono-Light.otf');
+  }
+
+  @font-face {
+    font-family: 'Operator Mono Light Italic';
+    src: url('../static/fonts/OperatorMono-LightItalic.otf');
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto,-apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
+    font-display: swap;
+  }
+`
 
 // console.time('timer')
 
@@ -61,9 +81,9 @@ export default class MyApp extends App {
     return (
       <ErrorBoundary FallbackComponent={Error}>
         <Container>
+          <GlobalStyle />
           <AtomSpinner loading={loading} />
           {loading && <Component {...pageProps} />}
-
           <div style={{ position: 'relative' }}>
             <Transition
               native

@@ -20,6 +20,10 @@ module.exports = withTypescript(
         join(dir, 'static/manifest.json'),
         join(outDir, 'manifest.json')
       )
+      await copyFile(
+        join(dir, 'static/sitemap.xml'),
+        join(outDir, 'sitemap.xml')
+      )
       return defaultPathMap
     },
     webpack: config => {

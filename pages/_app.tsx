@@ -52,12 +52,12 @@ export default class MyApp extends App {
       jssStyles.parentNode.removeChild(jssStyles)
     }
 
-    setTimeout(() => {
-      // console.timeEnd('timer')
-      requestAnimationFrame(() => {
-        this.setState({ loading: false })
-      })
-    }, 500)
+    // setTimeout(() => {
+    // console.timeEnd('timer')
+    requestAnimationFrame(() => {
+      this.setState({ loading: false })
+    })
+    // }, 500)
   }
 
   // componentDidCatch(error, errorInfo) {
@@ -90,7 +90,7 @@ export default class MyApp extends App {
               unique
               items={items}
               keys={items => items.id}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               from={{ opacity: 0 }}
               enter={{ opacity: 1 }}
               leave={{

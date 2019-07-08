@@ -2,6 +2,10 @@ import styled, { createGlobalStyle } from 'styled-components'
 import Transition from 'react-transition-group/Transition'
 import StarParallax from './StarParallax'
 
+interface Props {
+  loading: boolean
+}
+
 const GlobalStyle = createGlobalStyle`
   body {
     overflow: hidden;
@@ -108,12 +112,12 @@ const defaultStyle = {
   willChange: 'opacity'
 }
 
-const transitionStyles = {
+const transitionStyles: any = {
   entering: { opacity: 0 },
   entered: { opacity: 1 }
 }
 
-const Fade = ({ in: inProp }) => (
+const Fade = ({ inProp }: { inProp: boolean }) => (
   <Transition in={inProp} timeout={duration} unmountOnExit>
     {state => (
       <Container
@@ -137,4 +141,4 @@ const Fade = ({ in: inProp }) => (
   </Transition>
 )
 
-export default props => <Fade in={props.loading} />
+export default ({ loading }: Props) => <Fade inProp={loading} />

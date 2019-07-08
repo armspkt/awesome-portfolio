@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from 'react'
+import { NextPage } from 'next'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import Head from '../components/head'
 import Nav from '../components/common/Nav'
@@ -25,7 +26,7 @@ const Name = styled.div`
   }
 `
 
-function Index() {
+const Index: NextPage = () => {
   // const [count, setCount] = useState(0)
   // if (count === 1) {
   //   // Simulate a JS error

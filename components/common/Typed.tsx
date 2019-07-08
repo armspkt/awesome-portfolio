@@ -3,6 +3,10 @@ import Typed from 'typed.js'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 
+interface Props {
+  strings: string[]
+}
+
 const TypedContainer = styled.div`
   font-family: 'Operator Mono Light Italic';
   font-size: 3rem;
@@ -16,13 +20,10 @@ const TypedContainer = styled.div`
   `};
 `
 
-const TypeMessage = props => {
+const TypeMessage = ({ strings }: Props) => {
   const typedRef = useRef<any>('')
 
   useEffect(() => {
-    // If you want to pass more options as props, simply add
-    // your desired props to this destructuring assignment.
-    const { strings } = props
     // You can pass other options here, such as typing speed, back speed, etc.
     const options = {
       strings: strings,

@@ -5,7 +5,7 @@ import flush from 'styled-jsx/server'
 import theme from '../theme/theme'
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx): Promise<any> {
+  static async getInitialProps(ctx: any): Promise<any> {
     const sheet = new ServerStyleSheet()
     const sheets = new ServerStyleSheets()
     const originalRenderPage = ctx.renderPage
@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props =>
+          enhanceApp: (App: any) => (props: any) =>
             sheets.collect(sheet.collectStyles(<App {...props} />))
         })
 

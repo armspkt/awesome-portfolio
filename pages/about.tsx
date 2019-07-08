@@ -5,7 +5,7 @@ import Nav from '../components/common/Nav'
 import lax from 'lax.js'
 import Plx from 'react-plx'
 
-const Container = styled.div<any>`
+const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

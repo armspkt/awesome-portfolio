@@ -1,9 +1,7 @@
 import { Fragment } from 'react'
-import Link from 'next/link'
+// import Link from 'next/link'
 import styled from 'styled-components'
 import media from 'styled-media-query'
-import Button from '@material-ui/core/Button'
-import Icon from '@material-ui/core/Icon'
 import IconButton from '@material-ui/core/IconButton'
 import SaveAltIcon from '@material-ui/icons/SaveAlt'
 
@@ -28,12 +26,8 @@ const NavContent = styled.div`
   padding-left: calc(max(22px, env(safe-area-inset-left)));
   padding-right: calc(max(22px, env(safe-area-inset-right)));
 
-  ${media.lessThan('980px')`
+  ${media.lessThan('medium')`
     padding: 0 4vw;
-  `};
-
-  ${media.lessThan('small')`
-    padding: 0 8vw;
   `};
 `
 
@@ -55,16 +49,12 @@ const NavLiStyle = styled.li`
   padding: 10px;
 `
 
-const IconStyle = styled<any>(Icon)`
-  margin-left: 8px;
-`
-
 const Nav = () => (
   <Fragment>
     <NavStyle>
       <NavContent>
         <NavUlStyle>
-          <Link prefetch href="/" passHref>
+          {/* <Link prefetch href="/" passHref>
             <NavLiStyle>Home</NavLiStyle>
           </Link>
 
@@ -82,12 +72,8 @@ const Nav = () => (
           </Link>
           <Link href="/" passHref>
             <NavLiStyle>React Playground</NavLiStyle>
-          </Link>
+          </Link> */}
           <NavLiStyle style={{ marginLeft: 'auto' }}>
-            {/* <Button variant="contained" color="default">
-              Contact
-              <IconStyle>send</IconStyle>
-            </Button> */}
             <a href="/static/supakorn.pdf" target="_blank">
               <IconButton aria-label="SaveAlt">
                 <SaveAltIcon htmlColor="white" fontSize="large" />

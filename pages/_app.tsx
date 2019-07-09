@@ -1,5 +1,5 @@
 import React from 'react'
-import App, { Container } from 'next/app'
+import App, { Container, AppContext } from 'next/app'
 import Error from 'next/error'
 import ErrorBoundary from 'react-error-boundary'
 import { createGlobalStyle } from 'styled-components'
@@ -35,7 +35,7 @@ export default class MyApp extends App {
     loading: true
   }
 
-  static async getInitialProps({ Component, ctx }: any) {
+  static async getInitialProps({ Component, ctx }: AppContext) {
     let pageProps = {}
 
     if (Component.getInitialProps) {

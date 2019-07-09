@@ -1,11 +1,16 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, {
+  Head,
+  Main,
+  NextScript,
+  DocumentContext
+} from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 import { ServerStyleSheets } from '@material-ui/styles'
 import flush from 'styled-jsx/server'
 import theme from '../theme/theme'
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx: any): Promise<any> {
+  static async getInitialProps(ctx: DocumentContext): Promise<any> {
     const sheet = new ServerStyleSheet()
     const sheets = new ServerStyleSheets()
     const originalRenderPage = ctx.renderPage
@@ -13,7 +18,7 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App: any) => (props: any) =>
+          enhanceApp: App => props =>
             sheets.collect(sheet.collectStyles(<App {...props} />))
         })
 

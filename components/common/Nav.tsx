@@ -1,5 +1,4 @@
-import { Fragment } from 'react'
-// import Link from 'next/link'
+import Link from 'next/link'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import IconButton from '@material-ui/core/IconButton'
@@ -50,14 +49,13 @@ const NavLiStyle = styled.li`
 `
 
 const Nav = () => (
-  <Fragment>
+  <>
     <NavStyle>
       <NavContent>
         <NavUlStyle>
           {/* <Link prefetch href="/" passHref>
             <NavLiStyle>Home</NavLiStyle>
           </Link>
-
           <Link href="/about" passHref>
             <NavLiStyle>About</NavLiStyle>
           </Link>
@@ -73,17 +71,19 @@ const Nav = () => (
           <Link href="/" passHref>
             <NavLiStyle>React Playground</NavLiStyle>
           </Link> */}
-          <NavLiStyle style={{ marginLeft: 'auto' }}>
-            <a href="/static/supakorn.pdf" target="_blank">
-              <IconButton aria-label="SaveAlt">
-                <SaveAltIcon htmlColor="white" fontSize="large" />
-              </IconButton>
+          <Link href="/static/supakorn.pdf" passHref>
+            <a target="_blank" style={{ marginLeft: 'auto' }}>
+              <NavLiStyle>
+                <IconButton aria-label="SaveAlt">
+                  <SaveAltIcon htmlColor="white" fontSize="large" />
+                </IconButton>
+              </NavLiStyle>
             </a>
-          </NavLiStyle>
+          </Link>
         </NavUlStyle>
       </NavContent>
     </NavStyle>
-  </Fragment>
+  </>
 )
 
 export default Nav

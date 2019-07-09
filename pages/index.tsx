@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Head from '../components/head'
 import Nav from '../components/common/Nav'
@@ -34,7 +34,7 @@ const Index: NextPage = () => {
   // }
 
   return (
-    <Fragment>
+    <>
       <Head />
       <Nav />
       <Container>
@@ -50,7 +50,7 @@ const Index: NextPage = () => {
         <Rows input={true} /> // Also works! */}
         {/* <button onClick={() => setCount(count + 1)}>Click me {count} </button> */}
       </Container>
-    </Fragment>
+    </>
   )
 }
 

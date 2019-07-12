@@ -45,17 +45,17 @@
   },
   "devDependencies": {
     "@types/material-ui": "^0.21.6",
-    "@types/next": "^8.0.5",
-    "@types/node": "^12.0.12",
+    "@types/next": "^8.0.6",
+    "@types/node": "^12.6.2",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "@types/react-transition-group": "^2.9.2",
-    "@types/styled-components": "^4.1.16",
+    "@types/styled-components": "^4.1.18",
     "@types/styled-jsx": "^2.2.8",
     "babel-plugin-styled-components": "^1.10.6",
     "husky": "^3.0.0",
-    "lint-staged": "^9.1.0",
+    "lint-staged": "^9.2.0",
     "prettier": "^1.18.2",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   }
 }

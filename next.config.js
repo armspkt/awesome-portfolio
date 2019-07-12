@@ -5,7 +5,7 @@ const copyFile = promisify(fs.copyFile)
 const withOffline = require('next-offline')
 
 module.exports = withOffline({
-  exportTrailingSlash: true,
+  // exportTrailingSlash: true,
   exportPathMap: async function(
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }

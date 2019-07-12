@@ -71,15 +71,15 @@ const Nav = () => (
           <Link href="/" passHref>
             <NavLiStyle>React Playground</NavLiStyle>
           </Link> */}
-          <Link href="/static/supakorn.pdf" passHref>
-            <a target="_blank" style={{ marginLeft: 'auto' }}>
-              <NavLiStyle>
+          <NavLiStyle style={{ marginLeft: 'auto' }}>
+            <Link href="/static/supakorn.pdf" passHref>
+              <a target="_blank">
                 <IconButton aria-label="SaveAlt">
                   <SaveAltIcon htmlColor="white" fontSize="large" />
                 </IconButton>
-              </NavLiStyle>
-            </a>
-          </Link>
+              </a>
+            </Link>
+          </NavLiStyle>
         </NavUlStyle>
       </NavContent>
     </NavStyle>

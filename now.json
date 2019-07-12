@@ -1,5 +1,5 @@
 {
   "version": 2,
-  "name": "awesome-portfolio",
+  "name": "armspkt",
   "builds": [{ "src": "package.json", "use": "@now/static-build" }]
 }

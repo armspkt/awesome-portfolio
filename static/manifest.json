@@ -1,0 +1,16 @@
+{
+  "name": "ArmSpkT",
+  "short_name": "ArmSpkT",
+  "description": "A Hacker News Progressive Web App built using Next.js",
+  "icons": [
+    {
+      "src": "/static/favicon.ico",
+      "sizes": "1024x1024",
+      "type": "image/ico"
+    }
+  ],
+  "theme_color": "#ff80cc",
+  "background_color": "#fff",
+  "start_url": "/",
+  "display": "standalone"
+}

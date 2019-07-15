@@ -1,7 +1,7 @@
 {
   "name": "ArmSpkT",
   "short_name": "ArmSpkT",
-  "description": "A Hacker News Progressive Web App built using Next.js",
+  "description": "A Portfolio Progressive Web App built using Next.js",
   "icons": [
     {
       "src": "/static/favicon.ico",

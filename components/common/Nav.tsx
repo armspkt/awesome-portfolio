@@ -72,7 +72,7 @@ const Nav = () => (
             <NavLiStyle>React Playground</NavLiStyle>
           </Link> */}
           <NavLiStyle style={{ marginLeft: 'auto' }}>
-            <Link href="/static/supakorn.pdf" passHref>
+            <Link prefetch={false} href="/static/supakorn.pdf" passHref>
               <a target="_blank">
                 <IconButton aria-label="SaveAlt">
                   <SaveAltIcon htmlColor="white" fontSize="large" />

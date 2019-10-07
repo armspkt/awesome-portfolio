@@ -43,6 +43,7 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+          {/* https://htmlhead.dev/#recommended-minimum */}
           <meta charSet="utf-8" />
           {/* Use minimum-scale=1 to enable GPU rasterization */}
           <meta

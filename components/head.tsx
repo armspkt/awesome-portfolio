@@ -9,8 +9,8 @@ interface Props {
 
 const defaultTitle = `Arm Supakorn`
 const defaultDescription = `Supakorn's awesome portfolio that used Nextjs to create. Usage React-Spring to create awesome animation.`
-const defaultOGURL = 'http://armspkt.firebaseapp.com/'
-const defaultOGImage = 'https://armspkt.firebaseapp.com/static/arm.jpg'
+const defaultOGURL = 'http://armm.wtf/'
+const defaultOGImage = 'https://firebasestorage.googleapis.com/v0/b/armspkt.appspot.com/o/arm.jpg?alt=media&token=28d58609-57a4-40f3-81e3-2a24ad0f8172'
 
 const Head = ({ title, description, url, ogImage }: Props) => (
   <NextHead>

@@ -27,7 +27,7 @@ const Name = styled.div`
 `
 
 const Index: NextPage = () => {
-  // const [count, setCount] = useState(0)
+  // const [count, setCount] = React.useState(0)
   // if (count === 1) {
   //   // Simulate a JS error
   //   throw new Error('I crashed!')

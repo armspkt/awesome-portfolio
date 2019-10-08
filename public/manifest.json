@@ -9,8 +9,8 @@
       "type": "image/ico"
     }
   ],
-  "theme_color": "#ff80cc",
-  "background_color": "#fff",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "start_url": "/",
   "display": "standalone"
 }

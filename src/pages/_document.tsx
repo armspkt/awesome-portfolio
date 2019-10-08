@@ -7,7 +7,7 @@ import Document, {
 import { ServerStyleSheet } from 'styled-components'
 import { ServerStyleSheets } from '@material-ui/styles'
 import flush from 'styled-jsx/server'
-import theme from '../theme/theme'
+import theme from '../theme'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<any> {

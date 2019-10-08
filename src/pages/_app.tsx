@@ -1,5 +1,5 @@
 import React from 'react'
-import App, { AppContext } from 'next/app'
+import App from 'next/app'
 import Error from 'next/error'
 import ErrorBoundary from 'react-error-boundary'
 import { createGlobalStyle } from 'styled-components'
@@ -7,7 +7,7 @@ import { Transition, animated } from 'react-spring/renderprops.cjs'
 import AtomSpinner from '../components/common/AtomSpinner'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import theme from '../theme/theme'
+import theme from '../theme'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -28,8 +28,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-// console.time('timer')
-
 export default class MyApp extends App {
   state = {
     loading: true
@@ -42,19 +40,10 @@ export default class MyApp extends App {
       jssStyles.parentNode.removeChild(jssStyles)
     }
 
-    // setTimeout(() => {
-    // console.timeEnd('timer')
     requestAnimationFrame(() => {
       this.setState({ loading: false })
     })
-    // }, 500)
   }
-
-  // componentDidCatch(error, errorInfo) {
-  //   console.log('CUSTOM ERROR HANDLING', error)
-  //   // This is needed to render errors correctly in development / production
-  //   super.componentDidCatch(error, errorInfo)
-  // }
 
   render() {
     const { props } = this as any

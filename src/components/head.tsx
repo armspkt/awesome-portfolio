@@ -10,7 +10,8 @@ interface Props {
 const defaultTitle = `Arm Supakorn`
 const defaultDescription = `Supakorn's awesome portfolio that used Nextjs to create. Usage React-Spring to create awesome animation.`
 const defaultOGURL = 'http://armm.wtf/'
-const defaultOGImage = 'https://firebasestorage.googleapis.com/v0/b/armspkt.appspot.com/o/arm.jpg?alt=media&token=28d58609-57a4-40f3-81e3-2a24ad0f8172'
+const defaultOGImage =
+  'https://firebasestorage.googleapis.com/v0/b/armspkt.appspot.com/o/arm.jpg?alt=media&token=28d58609-57a4-40f3-81e3-2a24ad0f8172'
 
 const Head = ({ title, description, url, ogImage }: Props) => (
   <NextHead>
@@ -21,10 +22,10 @@ const Head = ({ title, description, url, ogImage }: Props) => (
       content="rainstormza, Supakorn Thongtra, Arm, armspkt, Portfolio, React, Nextjs, styled-components, react-spring"
     />
     <meta name="author" content="Supakorn Thongtra" />
-    <link rel="icon" sizes="192x192" href="/static/favicon.ico" />
-    <link rel="apple-touch-icon" href="/static/favicon.ico" />
-    <link rel="mask-icon" href="/static/favicon.ico" color="#49B882" />
-    <link rel="icon" href="/static/favicon.ico" />
+    <link rel="icon" sizes="192x192" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="mask-icon" href="/favicon.ico" color="#49B882" />
+    <link rel="icon" href="/favicon.ico" />
 
     <meta property="fb:app_id" content="1980447875380995" />
     <meta property="og:site_name" content="Arm Supakorn" />

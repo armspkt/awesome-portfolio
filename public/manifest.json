@@ -4,9 +4,9 @@
   "description": "A Portfolio Progressive Web App built using Next.js",
   "icons": [
     {
-      "src": "/static/favicon.ico",
-      "sizes": "1024x1024",
-      "type": "image/ico"
+      "src": "https://abs.twimg.com/responsive-web/web/icon-default.3c3b224a61f8b0e54.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
   ],
   "theme_color": "#ffffff",

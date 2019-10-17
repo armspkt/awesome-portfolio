@@ -59,7 +59,7 @@ const BD = styled.div`
   position: absolute;
   left: -21%;
   top: -21%;
-  background: url('/static/arm-white.png');
+  background: url('/static/arm-white.webp');
   background-size: 70%;
   background-position: center center;
   background-repeat: no-repeat;

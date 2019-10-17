@@ -53,7 +53,7 @@ const Nav = () => (
     <NavStyle>
       <NavContent>
         <NavUlStyle>
-          {/* <Link prefetch href="/" passHref>
+          <Link prefetch href="/" passHref>
             <NavLiStyle>Home</NavLiStyle>
           </Link>
           <Link href="/about" passHref>
@@ -70,7 +70,7 @@ const Nav = () => (
           </Link>
           <Link href="/" passHref>
             <NavLiStyle>React Playground</NavLiStyle>
-          </Link> */}
+          </Link>
           <NavLiStyle style={{ marginLeft: 'auto' }}>
             <Link prefetch={false} href="/static/supakorn.pdf" passHref>
               <a target="_blank">

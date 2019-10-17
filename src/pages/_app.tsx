@@ -3,11 +3,11 @@ import App from 'next/app'
 import Error from 'next/error'
 import ErrorBoundary from 'react-error-boundary'
 import { createGlobalStyle } from 'styled-components'
-import { Transition, animated } from 'react-spring/renderprops.cjs'
 import AtomSpinner from '../components/common/AtomSpinner'
 import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from '../theme'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -49,49 +49,26 @@ export default class MyApp extends App {
     const { props } = this as any
     const { Component, pageProps, router } = props
     const { loading } = this.state
-    const items = [
-      {
-        id: router.route,
-        Component,
-        pageProps
-      }
-    ]
 
     return (
       <ErrorBoundary FallbackComponent={Error}>
         <GlobalStyle />
         <AtomSpinner loading={loading} />
         {loading && <Component {...pageProps} />}
-        <div style={{ position: 'relative' }}>
-          <Transition
-            native
-            unique
-            items={items}
-            keys={items => items.id}
-            initial={{ opacity: 1 }}
-            from={{ opacity: 0 }}
-            enter={{ opacity: 1 }}
-            leave={{
-              opacity: 0,
-              position: 'absolute'
-            }}
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, position: 'absolute', width: '100%' }}
+            key={router.route}
           >
-            {({ Component, pageProps }) => (styles: any) => (
-              <animated.div
-                style={{
-                  ...styles,
-                  width: '100%'
-                }}
-              >
-                <ThemeProvider theme={theme}>
-                  {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                  <CssBaseline />
-                  <Component {...pageProps} />
-                </ThemeProvider>
-              </animated.div>
-            )}
-          </Transition>
-        </div>
+            <ThemeProvider theme={theme}>
+              {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+              <CssBaseline />
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </motion.div>
+        </AnimatePresence>
       </ErrorBoundary>
     )
   }

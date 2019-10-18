@@ -53,13 +53,12 @@ const Shape = styled.div`
   }
 `
 
-const BD = styled.div`
-  width: 142%;
-  height: 142%;
+const BD = styled.img`
+  width: 95%;
+  height: 95%;
   position: absolute;
-  left: -21%;
-  top: -21%;
-  background: url('/static/arm-white.webp');
+  left: 0%;
+  top: 0%;
   background-size: 70%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -81,7 +80,10 @@ function Profile() {
     <Box>
       <SpinContainer>
         <Shape>
-          <BD />
+          <picture>
+            <source srcSet="/static/arm-white.webp" type="image/webp" />
+            <BD src="/static/arm-white.png" />
+          </picture>
         </Shape>
       </SpinContainer>
     </Box>
@@ -90,5 +92,5 @@ function Profile() {
 
 export default Profile
 
-// https://9elements.com/io/css-border-radius/
-// https://9elements.github.io/fancy-border-radius/
+    // https://9elements.com/io/css-border-radius/
+    // https://9elements.github.io/fancy-border-radius/

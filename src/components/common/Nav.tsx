@@ -53,7 +53,7 @@ const Nav = () => (
     <NavStyle>
       <NavContent>
         <NavUlStyle>
-          <Link prefetch href="/" passHref>
+          <Link href="/" passHref>
             <NavLiStyle>Home</NavLiStyle>
           </Link>
           <Link href="/about" passHref>
@@ -62,7 +62,7 @@ const Nav = () => (
           <Link href="/skill" passHref>
             <NavLiStyle>Skills</NavLiStyle>
           </Link>
-          <Link prefetch href="/experience" passHref>
+          <Link href="/experience" passHref>
             <NavLiStyle>Experience</NavLiStyle>
           </Link>
           <Link href="/" passHref>

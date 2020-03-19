@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Box = styled.div`
   width: 40vmin;
-  height: 40vmin;
+  height: 50vmin;
   border: 1px dashed rgba(255, 255, 255, 0.4);
   position: relative;
 
@@ -81,8 +81,8 @@ function Profile() {
       <SpinContainer>
         <Shape>
           <picture>
-            <source srcSet="/static/arm-white.webp" type="image/webp" />
-            <BD src="/static/arm-white.png" />
+            <source srcSet="/static/arm.webp" type="image/webp" />
+            <BD src="/static/arm.png" alt="Arm's Photo" />
           </picture>
         </Shape>
       </SpinContainer>
@@ -92,5 +92,5 @@ function Profile() {
 
 export default Profile
 
-    // https://9elements.com/io/css-border-radius/
-    // https://9elements.github.io/fancy-border-radius/
+// https://9elements.com/io/css-border-radius/
+// https://9elements.github.io/fancy-border-radius/

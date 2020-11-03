@@ -109,21 +109,21 @@ const duration = 500
 const defaultStyle = {
   transition: `opacity ${duration}ms ease-in-out`,
   opacity: 0,
-  willChange: 'opacity'
+  willChange: 'opacity',
 }
 
 const transitionStyles: any = {
   entering: { opacity: 0 },
-  entered: { opacity: 1 }
+  entered: { opacity: 1 },
 }
 
 const Fade = ({ inProp }: { inProp: boolean }) => (
   <Transition in={inProp} timeout={duration} unmountOnExit>
-    {state => (
+    {(state) => (
       <Container
         style={{
           ...defaultStyle,
-          ...transitionStyles[state]
+          ...transitionStyles[state],
         }}
       >
         <GlobalStyle />
@@ -141,4 +141,8 @@ const Fade = ({ inProp }: { inProp: boolean }) => (
   </Transition>
 )
 
-export default ({ loading }: Props) => <Fade inProp={loading} />
+function AtomSpinnerComponent({ loading }: Props) {
+  return <Fade inProp={loading} />
+}
+
+export default AtomSpinnerComponent

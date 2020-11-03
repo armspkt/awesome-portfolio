@@ -1,7 +1,8 @@
 import React from 'react'
 import App from 'next/app'
+import Head from 'next/head'
 import Error from 'next/error'
-import ErrorBoundary from 'react-error-boundary'
+import { ErrorBoundary } from 'react-error-boundary'
 import { createGlobalStyle } from 'styled-components'
 import AtomSpinner from '../components/common/AtomSpinner'
 import { ThemeProvider } from '@material-ui/styles'
@@ -30,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 
 export default class MyApp extends App {
   state = {
-    loading: true
+    loading: true,
   }
 
   componentDidMount() {
@@ -45,31 +46,44 @@ export default class MyApp extends App {
     })
   }
 
+  ErrorFallback() {
+    return <Error statusCode={0} />
+  }
+
   render() {
     const { props } = this as any
     const { Component, pageProps, router } = props
     const { loading } = this.state
 
     return (
-      <ErrorBoundary FallbackComponent={Error}>
-        <GlobalStyle />
-        <AtomSpinner loading={loading} />
-        {loading && <Component {...pageProps} />}
-        <AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, position: 'absolute', width: '100%' }}
-            key={router.route}
-          >
-            <ThemeProvider theme={theme}>
-              {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-              <CssBaseline />
-              <Component {...pageProps} />
-            </ThemeProvider>
-          </motion.div>
-        </AnimatePresence>
-      </ErrorBoundary>
+      <>
+        <Head>
+          {/* Use minimum-scale=1 to enable GPU rasterization */}
+          <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
+          />
+        </Head>
+        <ErrorBoundary FallbackComponent={this.ErrorFallback}>
+          <GlobalStyle />
+          <AtomSpinner loading={loading} />
+          {loading && <Component {...pageProps} />}
+          <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, position: 'absolute', width: '100%' }}
+              key={router.route}
+            >
+              <ThemeProvider theme={theme}>
+                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                <CssBaseline />
+                <Component {...pageProps} />
+              </ThemeProvider>
+            </motion.div>
+          </AnimatePresence>
+        </ErrorBoundary>
+      </>
     )
   }
 }

@@ -741,10 +741,14 @@ const Star3 = styled.div`
   }
 `
 
-export default () => (
-  <Container>
-    <Star1 />
-    <Star2 />
-    <Star3 />
-  </Container>
-)
+function StarParallax() {
+  return (
+    <Container>
+      <Star1 />
+      <Star2 />
+      <Star3 />
+    </Container>
+  )
+}
+
+export default StarParallax

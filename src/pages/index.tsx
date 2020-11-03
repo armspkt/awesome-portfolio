@@ -81,12 +81,12 @@ const Index: NextPage = () => {
         <Rows input={1} />
         <Rows input={true} /> // Also works! */}
         {/* <button onClick={() => setCount(count + 1)}>Click me {count} </button> */}
-        <br />
+        {/* <br />
         <br />
         <br />
         <RainbowButton>
           <span>สร้างสไตล์ของคุณ</span>
-        </RainbowButton>
+        </RainbowButton> */}
       </Container>
     </>
   )

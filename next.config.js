@@ -1,6 +1,12 @@
 const withPlugins = require('next-compose-plugins')
 const withPWA = require('next-pwa')
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
+const cp = require('child_process')
+// show abbreviated commit object as fallback (git rev-parse --short HEAD)
+const buildId = cp.execSync('git describe --always', {
+  cwd: __dirname,
+  encoding: 'utf8',
+})
 
 // next.js configuration
 const nextConfig = {
@@ -22,6 +28,10 @@ const nextConfig = {
       }
     }
     return config
+  },
+  generateBuildId: async () => {
+    // You can, for example, get the latest git commit hash here
+    return buildId
   },
 }
 

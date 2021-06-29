@@ -28,7 +28,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
     "framer-motion": "^2.9.4",
-    "gsap": "^3.5.1",
+    "gsap": "^3.6.0",
     "isomorphic-unfetch": "^3.1.0",
     "lax.js": "^1.2.5",
     "next": "^10.0.1",

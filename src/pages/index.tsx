@@ -6,7 +6,6 @@ import Nav from '../components/common/Nav'
 import TypeMessage from '../components/common/Typed'
 import Profile from '../components/common/Profile'
 // import Rows from '../components/Generic'
-import useSWR from 'swr'
 
 const Container = styled.div`
   position: relative;
@@ -18,9 +17,25 @@ const Container = styled.div`
   justify-content: center;
 `
 
+const NameContainer = styled.div`
+  background: white;
+  border-radius: 4px;
+  margin: 16px;
+`
+
 const Name = styled.div`
   font-weight: 400;
   color: white;
+  background-image: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-radius: 4px;
+  padding: 4px 8px;
+
+  h1 {
+    margin: 0;
+  }
 
   span {
     font-weight: 100;
@@ -70,11 +85,13 @@ const Index: NextPage = () => {
       <Head />
       <Nav />
       <Container>
-        <Name>
-          <h1>
-            Supakorn <span>Thongtra</span>
-          </h1>
-        </Name>
+        <NameContainer>
+          <Name>
+            <h1>
+              Supakorn <span>Thongtra</span>
+            </h1>
+          </Name>
+        </NameContainer>
         <TypeMessage strings={[`I'm developer.`]} />
         <Profile />
         {/* <Rows input={[1]} />

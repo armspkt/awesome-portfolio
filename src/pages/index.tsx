@@ -27,6 +27,24 @@ const Name = styled.div`
   font-weight: 400;
   color: white;
   background-image: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
+  /* background-image: linear-gradient(
+    90deg,
+    #ec6192,
+    #ec4c34,
+    #ffbd2b,
+    #ebde56,
+    #57c754,
+    #53a1eb
+  ); */
+  /* background-image: linear-gradient(
+    -90deg,
+    #adfbda,
+    #35c3ff,
+    #fda399,
+    #76d880,
+    #ebf38b,
+    #adfbda
+  ); */
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

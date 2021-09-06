@@ -2,8 +2,8 @@ import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import Head from '../components/head'
 import Nav from '../components/common/Nav'
-import lax from 'lax.js'
-import Plx from 'react-plx'
+// import lax from 'lax.js'
+// import Plx from 'react-plx'
 
 const Container = styled.div`
   display: flex;
@@ -24,19 +24,19 @@ const exampleParallaxData = [
       {
         startValue: 0,
         endValue: 90,
-        property: 'rotate'
+        property: 'rotate',
       },
       {
         startValue: 1,
         endValue: 1.5,
-        property: 'scale'
+        property: 'scale',
       },
       {
         startValue: 1,
         endValue: 0.75,
-        property: 'opacity'
-      }
-    ]
+        property: 'opacity',
+      },
+    ],
   },
   {
     start: 350,
@@ -45,19 +45,19 @@ const exampleParallaxData = [
       {
         startValue: '#3cb99c',
         endValue: 'rgba(50,50,200,0.8)',
-        property: 'backgroundColor'
+        property: 'backgroundColor',
       },
       {
         startValue: 0,
         endValue: 100,
-        property: 'translateY'
+        property: 'translateY',
       },
       {
         startValue: 0.75,
         endValue: 1,
-        property: 'opacity'
-      }
-    ]
+        property: 'opacity',
+      },
+    ],
   },
   {
     start: 700,
@@ -66,27 +66,27 @@ const exampleParallaxData = [
       {
         startValue: 100,
         endValue: 0,
-        property: 'translateY'
+        property: 'translateY',
       },
       {
         startValue: 1.5,
         endValue: 2,
-        property: 'scale'
+        property: 'scale',
       },
       {
         startValue: 90,
         endValue: 0,
-        property: 'rotate'
+        property: 'rotate',
       },
       // Blur is not performant
       // Used just as an example for CSS filters
       {
         startValue: 0,
         endValue: 2,
-        property: 'blur'
-      }
-    ]
-  }
+        property: 'blur',
+      },
+    ],
+  },
 ]
 
 const styles = {
@@ -101,27 +101,27 @@ const styles = {
   marginLeft: -50,
   top: 100,
   position: 'fixed',
-  fontFamily: 'Helvetica, Arial, sans-serif'
+  fontFamily: 'Helvetica, Arial, sans-serif',
 }
 
 export default () => {
   const refEl: any = useRef()
 
-  useEffect(() => {
-    lax.setup()
+  // useEffect(() => {
+  //   lax.setup()
 
-    document.addEventListener(
-      'scroll',
-      function (x) {
-        console.log(x)
-        lax.update(window.scrollY)
-      },
-      false
-    )
+  //   document.addEventListener(
+  //     'scroll',
+  //     function (x) {
+  //       console.log(x)
+  //       lax.update(window.scrollY)
+  //     },
+  //     false
+  //   )
 
-    lax.update(window.scrollY)
-    lax.addElement(refEl.current)
-  }, [])
+  //   lax.update(window.scrollY)
+  //   lax.addElement(refEl.current)
+  // }, [])
 
   return (
     <div>
@@ -129,15 +129,15 @@ export default () => {
       <Nav />
       <Container>
         About
-        <p ref={refEl} data-lax-scale="0 0, 600 1,800 0" data-lax-anchor="self">
+        {/* <p ref={refEl} data-lax-scale="0 0, 600 1,800 0" data-lax-anchor="self">
           laxx.js
-        </p>
+        </p> */}
       </Container>
-      <div style={{ height: 3000 }}>
+      {/* <div style={{ height: 3000 }}>
         <Plx parallaxData={exampleParallaxData} style={styles}>
           Hello!
         </Plx>
-      </div>
+      </div> */}
     </div>
   )
 }

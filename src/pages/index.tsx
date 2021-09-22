@@ -24,8 +24,8 @@ const NameContainer = styled.div`
 `
 
 const Name = styled.div`
+  font-size: 32px;
   font-weight: 400;
-  color: white;
   background-image: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
   /* background-image: linear-gradient(
     90deg,
@@ -105,20 +105,13 @@ const Index: NextPage = () => {
       <Container>
         <NameContainer>
           <Name>
-            <h1>
-              Supakorn <span>Thongtra</span>
-            </h1>
+            Supakorn <span>Thongtra</span>
           </Name>
         </NameContainer>
         <TypeMessage strings={[`I'm developer.`]} />
         <Profile />
-        {/* <Rows input={[1]} />
-        <Rows input={1} />
-        <Rows input={true} /> // Also works! */}
         {/* <button onClick={() => setCount(count + 1)}>Click me {count} </button> */}
         {/* <br />
-        <br />
-        <br />
         <RainbowButton>
           <span>สร้างสไตล์ของคุณ</span>
         </RainbowButton> */}

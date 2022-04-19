@@ -26,7 +26,8 @@
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "incremental": true
   },
   "exclude": [
     "node_modules"

@@ -9,6 +9,7 @@ import { ThemeProvider } from '@material-ui/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from '../theme'
 import { AnimatePresence, motion } from 'framer-motion'
+import Script from 'next/script'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -64,6 +65,41 @@ export default class MyApp extends App {
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
           />
         </Head>
+
+        {/* Global Site Tag (gtag.js) - Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${'G-CK8J4LSY7H'}`}
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${'G-CK8J4LSY7H'}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
+
+        {/* Google Tag Manager - Global base code */}
+        <Script
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer', '${'GTM-K4HJLGF'}');
+          `,
+          }}
+        />
+
         <ErrorBoundary FallbackComponent={this.ErrorFallback}>
           <GlobalStyle />
           <AtomSpinner loading={loading} />

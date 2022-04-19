@@ -50,6 +50,7 @@ const Name = styled.div`
   -webkit-text-fill-color: transparent;
   border-radius: 4px;
   padding: 4px 8px;
+  text-align: center;
 
   h1 {
     margin: 0;
@@ -91,6 +92,86 @@ const RainbowButton = styled.button`
   }
 `
 
+const Card = styled.div`
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  display: flex;
+  width: 16rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem;
+  border-radius: 20px;
+  min-height: 350px;
+  background: rgb(0, 204, 255);
+  /* background: linear-gradient(
+    45deg,
+    rgba(0, 204, 255, 0.44861694677871145) 0%,
+    rgba(212, 0, 212, 0.4514180672268907) 100%
+  ); */
+  background: linear-gradient(
+    45deg,
+    #fdde5c,
+    #f8ab5e,
+    #f56a62,
+    #a176c8,
+    #759beb,
+    #65beb3,
+    #70db96
+  );
+  transition: all 300ms ease-in-out;
+
+  &::before {
+    position: absolute;
+    width: 8rem;
+    content: '';
+    /* background: linear-gradient(#00ccff, #d400d4); */
+    background: linear-gradient(
+      #70db96,
+      #65beb3,
+      #759beb,
+      #a176c8,
+      #f56a62,
+      #f8ab5e,
+      #fdde5c
+    );
+    -webkit-animation: animate 2s linear infinite;
+    animation: animate 2s linear infinite;
+    height: 140%;
+    opacity: 0;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    border-radius: 16px;
+    inset: 4px;
+    background-color: #fff;
+  }
+
+  &:hover {
+    transform: scale(1.065);
+    opacity: 1;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`
+
 const Index: NextPage = () => {
   // const [count, setCount] = React.useState(0)
   // if (count === 1) {
@@ -115,6 +196,10 @@ const Index: NextPage = () => {
         <RainbowButton>
           <span>สร้างสไตล์ของคุณ</span>
         </RainbowButton> */}
+
+        {/* <Card>
+          <div>test</div>
+        </Card> */}
       </Container>
     </>
   )

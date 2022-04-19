@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 const Box = styled.div`
-  width: 40vmin;
-  height: 50vmin;
-  border: 1px dashed rgba(255, 255, 255, 0.4);
+  width: 100%;
+  height: 100%;
+  /* border: 1px dashed rgba(255, 255, 255, 0.4); */
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  &::before {
+  /* &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -17,7 +21,7 @@ const Box = styled.div`
     border-radius: 50%;
     border: 1px dashed rgba(255, 255, 255, 0.4);
     transform: scale(1.42);
-  }
+  } */
 `
 
 const SpinContainer = styled.div`
@@ -54,11 +58,11 @@ const Shape = styled.div`
 `
 
 const BD = styled.img`
-  width: 95%;
-  height: 95%;
-  position: absolute;
+  width: 400px;
+  height: 400px;
+  /* position: absolute;
   left: 0%;
-  top: 0%;
+  top: 0%; */
   background-size: 70%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -73,19 +77,24 @@ const BD = styled.img`
   animation: spin 12s linear infinite reverse;
   opacity: 1;
   z-index: 2;
+
+  ${media.lessThan('small')`
+    width: 95%;
+    height: 95%;
+  `};
 `
 
 function Profile() {
   return (
     <Box>
-      <SpinContainer>
-        <Shape>
-          <picture>
-            <source srcSet="/static/arm.webp" type="image/webp" />
-            <BD src="/static/arm.png" alt="Arm's Photo" />
-          </picture>
-        </Shape>
-      </SpinContainer>
+      {/* <SpinContainer> */}
+      {/* <Shape> */}
+      <picture>
+        <source srcSet="/static/armmm.webp" type="image/webp" />
+        <BD src="/static/armmm.png" alt="Arm's Photo" />
+      </picture>
+      {/* </Shape> */}
+      {/* </SpinContainer> */}
     </Box>
   )
 }

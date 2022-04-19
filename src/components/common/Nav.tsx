@@ -12,9 +12,9 @@ const NavStyle = styled.nav`
   width: 100%;
   z-index: 999;
 
-  ${media.lessThan('small')`
+  /* ${media.lessThan('small')`
     overflow: scroll;
-  `};
+  `}; */
 `
 
 const NavContent = styled.div`

@@ -2,6 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import createEmotionServer from '@emotion/server/create-instance'
 import theme from '../theme'
 import createEmotionCache from '../lib/createEmotionCache'
+import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
   render() {
@@ -72,6 +73,7 @@ MyDocument.getInitialProps = async (ctx) => {
   // 3. app.render
   // 4. page.render
 
+  const sheet = new ServerStyleSheet()
   const originalRenderPage = ctx.renderPage
 
   // You can consider sharing the same Emotion cache between all the SSR requests to speed up performance.
@@ -83,7 +85,7 @@ MyDocument.getInitialProps = async (ctx) => {
     originalRenderPage({
       enhanceApp: (App: any) =>
         function EnhanceApp(props) {
-          return <App emotionCache={cache} {...props} />
+          return sheet.collectStyles(<App emotionCache={cache} {...props} />)
         },
     })
 
@@ -103,5 +105,6 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     emotionStyleTags,
+    styles: [initialProps.styles, sheet.getStyleElement()],
   }
 }

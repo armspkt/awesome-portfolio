@@ -1,6 +1,7 @@
 import Head from '../components/head'
 import Nav from '../components/common/Nav'
 import styled from 'styled-components'
+import TextField from '../components/common/TextField'
 
 const Container = styled.div`
   display: flex;
@@ -15,7 +16,12 @@ const Container = styled.div`
 export default () => (
   <div>
     <Head title="Experience" />
-    <Nav />
-    <Container>Experience</Container>
+    {/* <Nav /> */}
+    <Container>
+      {/* <div>Experience</div> */}
+      <div>
+        <TextField></TextField>
+      </div>
+    </Container>
   </div>
 )

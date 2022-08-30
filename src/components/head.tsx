@@ -8,7 +8,7 @@ interface Props {
 }
 
 const defaultTitle = `Arm Supakorn`
-const defaultDescription = `Supakorn's awesome portfolio that used Nextjs to create. Usage React-Spring to create awesome animation.`
+const defaultDescription = `Supakorn's awesome portfolio that used Nextjs to create. Usage framer-motion to create awesome animation.`
 const defaultOGURL = 'http://armm.wtf/'
 const defaultOGImage =
   'https://firebasestorage.googleapis.com/v0/b/armspkt.appspot.com/o/arm.jpg?alt=media&token=28d58609-57a4-40f3-81e3-2a24ad0f8172'
@@ -19,7 +19,7 @@ const Head = ({ title, description, url, ogImage }: Props) => (
     <meta name="description" content={description || defaultDescription} />
     <meta
       name="keywords"
-      content="rainstormza, Supakorn Thongtra, Arm, armspkt, Portfolio, React, Nextjs, styled-components, react-spring"
+      content="rainstormza, Supakorn Thongtra, Arm, armspkt, Portfolio, React, Nextjs, styled-components, framer-motion"
     />
     <meta name="author" content="Supakorn Thongtra" />
     <link rel="icon" sizes="192x192" href="/favicon.ico" />

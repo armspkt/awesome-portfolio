@@ -1,12 +1,12 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import Transition from 'react-transition-group/Transition'
 import StarParallax from './StarParallax'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface Props {
   loading: boolean
 }
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle: any = createGlobalStyle`
   body {
     overflow: hidden;
   }
@@ -104,41 +104,30 @@ const SpinnerCircle = styled.div`
   transform: translate(-50%, -50%);
 `
 
-const duration = 500
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-  willChange: 'opacity',
-}
-
-const transitionStyles: any = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 },
-}
-
 const Fade = ({ inProp }: { inProp: boolean }) => (
-  <Transition in={inProp} timeout={duration} unmountOnExit>
-    {(state) => (
-      <Container
-        style={{
-          ...defaultStyle,
-          ...transitionStyles[state],
-        }}
+  <AnimatePresence initial={false}>
+    {inProp && (
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+        exit={{ opacity: 0 }}
       >
-        <GlobalStyle />
-        <StarParallax />
-        <AtomSpinner>
-          <SpinnerInner>
-            <SpinnerLine />
-            <SpinnerLine />
-            <SpinnerLine />
-            <SpinnerCircle />
-          </SpinnerInner>
-        </AtomSpinner>
-      </Container>
+        <Container>
+          <GlobalStyle />
+          <StarParallax />
+          <AtomSpinner>
+            <SpinnerInner>
+              <SpinnerLine />
+              <SpinnerLine />
+              <SpinnerLine />
+              <SpinnerCircle />
+            </SpinnerInner>
+          </AtomSpinner>
+        </Container>
+      </motion.div>
     )}
-  </Transition>
+  </AnimatePresence>
 )
 
 function AtomSpinnerComponent({ loading }: Props) {

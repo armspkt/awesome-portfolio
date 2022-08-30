@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import media from 'styled-media-query'
-import IconButton from '@material-ui/core/IconButton'
-import SaveAltIcon from '@material-ui/icons/SaveAlt'
+import IconButton from '@mui/material/IconButton'
+import SaveAltIcon from '@mui/icons-material/SaveAlt'
 
 const NavStyle = styled.nav`
   color: white;

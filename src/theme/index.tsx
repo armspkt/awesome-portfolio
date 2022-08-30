@@ -1,8 +1,5 @@
-import { createTheme } from '@material-ui/core/styles'
-import blue from '@material-ui/core/colors/blue'
-import pink from '@material-ui/core/colors/pink'
-import red from '@material-ui/core/colors/red'
-
+import { createTheme } from '@mui/material/styles'
+import { blue, pink, red } from '@mui/material/colors'
 // Create a theme instance.
 const theme = createTheme({
   palette: {

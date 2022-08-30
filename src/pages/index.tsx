@@ -5,7 +5,6 @@ import Head from '../components/head'
 import Nav from '../components/common/Nav'
 import TypeMessage from '../components/common/Typed'
 import Profile from '../components/common/Profile'
-// import Rows from '../components/Generic'
 
 const Container = styled.div`
   position: relative;

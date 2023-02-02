@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-Sitemap: https://armspkt.firebaseapp.com/sitemap.xml
+# Host
+Host: https://www.armm.dev
+
+# Sitemaps
+Sitemap: https://www.armm.dev/sitemap.xml

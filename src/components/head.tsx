@@ -1,10 +1,12 @@
 import NextHead from 'next/head'
+import { ReactNode } from 'react'
 
 interface Props {
   title?: string
   description?: string
   url?: string
   ogImage?: string
+  children?: ReactNode
 }
 
 const defaultTitle = `Arm Supakorn`
@@ -13,7 +15,7 @@ const defaultOGURL = 'http://armm.wtf/'
 const defaultOGImage =
   'https://firebasestorage.googleapis.com/v0/b/armspkt.appspot.com/o/arm.jpg?alt=media&token=28d58609-57a4-40f3-81e3-2a24ad0f8172'
 
-const Head = ({ title, description, url, ogImage }: Props) => (
+const Head = ({ title, description, url, ogImage, children }: Props) => (
   <NextHead>
     <title>{title || defaultTitle}</title>
     <meta name="description" content={description || defaultDescription} />
@@ -50,6 +52,8 @@ const Head = ({ title, description, url, ogImage }: Props) => (
     <meta name="twitter:image" content={ogImage || defaultOGImage} />
     <meta name="twitter:site" content="@armspkt" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    {children}
   </NextHead>
 )
 

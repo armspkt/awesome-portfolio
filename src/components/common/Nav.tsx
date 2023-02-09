@@ -74,7 +74,7 @@ const Nav = () => (
           <NavLiStyle style={{ marginLeft: 'auto' }}>
             <Link
               prefetch={false}
-              href="/static/supakorn.pdf"
+              href="/static/supakorn-thongtra.pdf"
               passHref
               target="_blank"
             >

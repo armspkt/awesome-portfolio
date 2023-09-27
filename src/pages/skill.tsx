@@ -17,6 +17,7 @@ const Container = styled.div`
 
 const Skill = () => {
   const ref = useRef<TurnstileInstance>(null)
+  const ref2 = useRef<TurnstileInstance>(null)
 
   return (
     <div>
@@ -26,7 +27,12 @@ const Skill = () => {
         {/* <div>Skill</div> */}
 
         <div>
-          <Turnstile ref={ref} siteKey={TURNSTILE_SITE_KEY} />
+          <Turnstile
+            ref={ref}
+            siteKey={TURNSTILE_SITE_KEY}
+            options={{ action: 'login' }}
+            scriptOptions={{ id: 'login' }}
+          />
           <div>
             <button onClick={() => alert(ref.current?.getResponse())}>
               Get response

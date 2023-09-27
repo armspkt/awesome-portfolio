@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import media from 'styled-media-query'
-import IconButton from '@material-ui/core/IconButton'
-import SaveAltIcon from '@material-ui/icons/SaveAlt'
+import IconButton from '@mui/material/IconButton'
+import SaveAltIcon from '@mui/icons-material/SaveAlt'
 
 const NavStyle = styled.nav`
   color: white;
@@ -12,9 +12,9 @@ const NavStyle = styled.nav`
   width: 100%;
   z-index: 999;
 
-  ${media.lessThan('small')`
+  /* ${media.lessThan('small')`
     overflow: scroll;
-  `};
+  `}; */
 `
 
 const NavContent = styled.div`
@@ -72,12 +72,15 @@ const Nav = () => (
             <NavLiStyle>React Playground</NavLiStyle>
           </Link> */}
           <NavLiStyle style={{ marginLeft: 'auto' }}>
-            <Link prefetch={false} href="/static/supakorn.pdf" passHref>
-              <a target="_blank">
-                <IconButton aria-label="SaveAlt">
-                  <SaveAltIcon htmlColor="white" fontSize="large" />
-                </IconButton>
-              </a>
+            <Link
+              prefetch={false}
+              href="/static/supakorn-thongtra.pdf"
+              passHref
+              target="_blank"
+            >
+              <IconButton aria-label="SaveAlt">
+                <SaveAltIcon htmlColor="white" fontSize="large" />
+              </IconButton>
             </Link>
           </NavLiStyle>
         </NavUlStyle>

@@ -1,25 +1,27 @@
 import NextHead from 'next/head'
+import { ReactNode } from 'react'
 
 interface Props {
   title?: string
   description?: string
   url?: string
   ogImage?: string
+  children?: ReactNode
 }
 
 const defaultTitle = `Arm Supakorn`
-const defaultDescription = `Supakorn's awesome portfolio that used Nextjs to create. Usage React-Spring to create awesome animation.`
+const defaultDescription = `Supakorn's awesome portfolio that used Nextjs to create. Usage framer-motion to create awesome animation.`
 const defaultOGURL = 'http://armm.wtf/'
 const defaultOGImage =
   'https://firebasestorage.googleapis.com/v0/b/armspkt.appspot.com/o/arm.jpg?alt=media&token=28d58609-57a4-40f3-81e3-2a24ad0f8172'
 
-const Head = ({ title, description, url, ogImage }: Props) => (
+const Head = ({ title, description, url, ogImage, children }: Props) => (
   <NextHead>
     <title>{title || defaultTitle}</title>
     <meta name="description" content={description || defaultDescription} />
     <meta
       name="keywords"
-      content="rainstormza, Supakorn Thongtra, Arm, armspkt, Portfolio, React, Nextjs, styled-components, react-spring"
+      content="rainstormza, Supakorn Thongtra, Arm, armspkt, Portfolio, React, Nextjs, styled-components, framer-motion"
     />
     <meta name="author" content="Supakorn Thongtra" />
     <link rel="icon" sizes="192x192" href="/favicon.ico" />
@@ -50,6 +52,8 @@ const Head = ({ title, description, url, ogImage }: Props) => (
     <meta name="twitter:image" content={ogImage || defaultOGImage} />
     <meta name="twitter:site" content="@armspkt" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    {children}
   </NextHead>
 )
 

@@ -1,4 +1,10 @@
 {
-  "version": 2,
-  "trailingSlash": false
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=0"
+      }
+    }
+  ]
 }

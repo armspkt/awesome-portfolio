@@ -104,8 +104,10 @@ const styles = {
   fontFamily: 'Helvetica, Arial, sans-serif',
 }
 
+import { MutableRefObject } from 'react'
+
 export default () => {
-  const refEl: any = useRef()
+  const refEl: MutableRefObject<any> = useRef(null)
 
   // useEffect(() => {
   //   lax.setup()
